@@ -212,7 +212,7 @@ docs/        README template and sources with clause references
 
 ## Tests
 
-`pytest` runs (mutation test not run yet) tests offline. They cover:
+`pytest` runs 55 tests offline. They cover:
 
 - Manning and continuity invariants: capacity monotonic in width, depth and slope, Q = V A, and normal depth as the inverse of Manning.
 - Rational-method arithmetic.
@@ -224,7 +224,7 @@ docs/        README template and sources with clause references
 - Upsizing never shrinks a section and restores compliance.
 - README numbers checked against `results/`.
 
-**Mutation test of the tests** ([`mutation/run_mutants.py`](mutation/run_mutants.py), report in [`results/mutation_report.json`](results/mutation_report.json)). The script plants (mutation test not run yet) deliberate bugs, one at a time, in a scratch copy of the repo. It first checks that the unmodified suite passes and that every mutant compiles. The suite killed **(mutation test not run yet) of (mutation test not run yet)** mutants. Survivors: (mutation test not run yet).
+**Mutation test of the tests** ([`mutation/run_mutants.py`](mutation/run_mutants.py), report in [`results/mutation_report.json`](results/mutation_report.json)). The script plants 20 deliberate bugs, one at a time, in a scratch copy of the repo. It first checks that the unmodified suite passes and that every mutant compiles. In the first round the suite killed 18 of 20 mutants. The survivors were M13 (minimum self-cleansing velocity not checked), M15 (drain may start above the inverts flowing into it). The second survived because that level constraint never binds in this network. Tests were then added that check each section criterion flag on its own and force the level constraint to bind. In the latest round (round 1, 55 tests) the suite killed **18 of 20**. Survivors: M13 (minimum self-cleansing velocity not checked), M15 (drain may start above the inverts flowing into it).
 
 ## Sources
 

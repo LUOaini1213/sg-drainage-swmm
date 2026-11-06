@@ -1,0 +1,269 @@
+{
+  "baseline_passed": 55,
+  "baseline_seconds": 9.8,
+  "n_mutants": 20,
+  "n_valid": 20,
+  "all_compile": true,
+  "n_killed": 18,
+  "n_survived": 2,
+  "survivors": [
+    "M13 (minimum self-cleansing velocity not checked)",
+    "M15 (drain may start above the inverts flowing into it)"
+  ],
+  "invalid": [],
+  "mutants": [
+    {
+      "id": "M01",
+      "file": "sgdrain/hydraulics.py",
+      "description": "Manning: R exponent 1/2 instead of 2/3",
+      "original": "hydraulic_radius(b, y) ** (2.0 / 3.0)",
+      "mutated": "hydraulic_radius(b, y) ** (1.0 / 2.0)",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_hydraulics.py::test_manning_hand_calculation",
+      "seconds": 9.7
+    },
+    {
+      "id": "M02",
+      "file": "sgdrain/hydraulics.py",
+      "description": "Manning: slope not square-rooted",
+      "original": "* math.sqrt(s)",
+      "mutated": "* s",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_hydraulics.py::test_manning_hand_calculation",
+      "seconds": 9.3
+    },
+    {
+      "id": "M03",
+      "file": "sgdrain/cop.py",
+      "description": "Rational formula divisor 36 instead of 360",
+      "original": "RATIONAL_DIVISOR = 360.0",
+      "mutated": "RATIONAL_DIVISOR = 36.0",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_cop.py::test_cop_constants_match_the_code",
+      "seconds": 10.1
+    },
+    {
+      "id": "M04",
+      "file": "sgdrain/cop.py",
+      "description": "freeboard 10% instead of 15%",
+      "original": "FREEBOARD_FRACTION = 0.15",
+      "mutated": "FREEBOARD_FRACTION = 0.10",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_cop.py::test_cop_constants_match_the_code",
+      "seconds": 9.3
+    },
+    {
+      "id": "M05",
+      "file": "sgdrain/cop.py",
+      "description": "Froude limit 1.0 instead of 0.8",
+      "original": "FROUDE_MAX = 0.8",
+      "mutated": "FROUDE_MAX = 1.0",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_cop.py::test_cop_constants_match_the_code",
+      "seconds": 12.7
+    },
+    {
+      "id": "M06",
+      "file": "sgdrain/cop.py",
+      "description": "return-period rule: 1000 ha falls into the 50-yr class",
+      "original": "if total_area_ha <= RETURN_PERIOD_BY_AREA[1][0]:",
+      "mutated": "if total_area_ha < RETURN_PERIOD_BY_AREA[1][0]:",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_cop.py::test_return_period_rule",
+      "seconds": 10.7
+    },
+    {
+      "id": "M07",
+      "file": "sgdrain/cop.py",
+      "description": "runoff coefficient not area-weighted",
+      "original": "return sum(RUNOFF_C[k] * f for k, f in fractions.items())",
+      "mutated": "return sum(RUNOFF_C[k] for k in fractions) / len(fractions)",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_cop.py::test_weighted_c",
+      "seconds": 13.5
+    },
+    {
+      "id": "M08",
+      "file": "sgdrain/rational.py",
+      "description": "drain flow time in seconds added to minutes",
+      "original": "tc_new = tc_up + r.length / (60.0 * max(chk.v, 1e-6))",
+      "mutated": "tc_new = tc_up + r.length / (max(chk.v, 1e-6))",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_rational.py::test_tc_iteration_converged",
+      "seconds": 16.9
+    },
+    {
+      "id": "M09",
+      "file": "sgdrain/rational.py",
+      "description": "tc at a junction takes the shortest, not longest, upstream time",
+      "original": "tc_up = max(to_times + [out[u.id].tc_min for u in net.incoming(r.frm)])",
+      "mutated": "tc_up = min(to_times + [out[u.id].tc_min for u in net.incoming(r.frm)])",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_rational.py::test_tc_iteration_converged",
+      "seconds": 13.4
+    },
+    {
+      "id": "M10",
+      "file": "sgdrain/rational.py",
+      "description": "upstream area not accumulated",
+      "original": "subs = net.contributing_subs(r.frm)",
+      "mutated": "subs = net.subs_at(r.frm)",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_rational.py::test_contributing_area_and_ca_accumulate",
+      "seconds": 12.4
+    },
+    {
+      "id": "M11",
+      "file": "sgdrain/rational.py",
+      "description": "tc iteration stops after the first guess",
+      "original": "        if abs(tc_new - tc) < TC_TOL_MIN:",
+      "mutated": "        if True:",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_rational.py::test_tc_iteration_converged",
+      "seconds": 9.5
+    },
+    {
+      "id": "M12",
+      "file": "sgdrain/rational.py",
+      "description": "catalogue searched largest-first",
+      "original": "key=lambda s: (s[0] * s[1], s[1], s[0]))",
+      "mutated": "key=lambda s: (-s[0] * s[1], s[1], s[0]))",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_rational.py::test_chosen_section_is_smallest_compliant",
+      "seconds": 9.9
+    },
+    {
+      "id": "M13",
+      "file": "sgdrain/rational.py",
+      "description": "minimum self-cleansing velocity not checked",
+      "original": "vmin_ok=v >= cop.V_MIN - 1e-12,",
+      "mutated": "vmin_ok=True,",
+      "compiles": true,
+      "status": "survived",
+      "pytest_exit_code": 0,
+      "first_failing_test": null,
+      "seconds": 13.5
+    },
+    {
+      "id": "M14",
+      "file": "sgdrain/rational.py",
+      "description": "upsizing allowed to shrink sections",
+      "original": "chk = select_section(q, s0, min_b=b0, min_d=d0)",
+      "mutated": "chk = select_section(q, s0)",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_stress.py::test_upsizing_never_shrinks_and_restores_compliance[cc_v3_low]",
+      "seconds": 13.9
+    },
+    {
+      "id": "M15",
+      "file": "sgdrain/rational.py",
+      "description": "drain may start above the inverts flowing into it",
+      "original": "            inv_up = min(inv_up, out[u.id][\"inv_dn\"])",
+      "mutated": "            pass",
+      "compiles": true,
+      "status": "survived",
+      "pytest_exit_code": 0,
+      "first_failing_test": null,
+      "seconds": 11.9
+    },
+    {
+      "id": "M16",
+      "file": "sgdrain/idf.py",
+      "description": "IDF interpolated linearly instead of log-log",
+      "original": "li = (1 - w) * math.log(vals[j]) + w * math.log(vals[j + 1])",
+      "mutated": "li = math.log((1 - w) * vals[j] + w * vals[j + 1])",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_idf_hyetograph.py::test_interpolation_exact_at_nodes_and_loglog_between",
+      "seconds": 10.7
+    },
+    {
+      "id": "M17",
+      "file": "sgdrain/idf.py",
+      "description": "climate uplift added instead of multiplied",
+      "original": "return math.exp(li) * (1.0 + uplift)",
+      "mutated": "return math.exp(li) + uplift",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_idf_hyetograph.py::test_uplift_is_multiplicative_and_range_checked",
+      "seconds": 9.8
+    },
+    {
+      "id": "M18",
+      "file": "sgdrain/hyetograph.py",
+      "description": "hyetograph peak at the start instead of the centre",
+      "original": "centre = (n - 1) // 2",
+      "mutated": "centre = 0",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_idf_hyetograph.py::test_alternating_block_properties[10-120-5]",
+      "seconds": 11.3
+    },
+    {
+      "id": "M19",
+      "file": "sgdrain/hyetograph.py",
+      "description": "hyetograph depth->intensity unit error",
+      "original": "return [d * 60.0 / dt_min for d in blocks]",
+      "mutated": "return [d / dt_min for d in blocks]",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_idf_hyetograph.py::test_alternating_block_properties[10-120-5]",
+      "seconds": 9.6
+    },
+    {
+      "id": "M20",
+      "file": "sgdrain/swmm_model.py",
+      "description": "SWMM conduits use n = 0.013 instead of the COP 0.015",
+      "original": "{cop.MANNING_N['concrete']}",
+      "mutated": "0.013",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_swmm.py::test_inp_reflects_the_design",
+      "seconds": 11.4
+    }
+  ],
+  "history": [
+    {
+      "round": 1,
+      "baseline_passed": 55,
+      "n_mutants": 20,
+      "n_killed": 18,
+      "survivors": [
+        "M13 (minimum self-cleansing velocity not checked)",
+        "M15 (drain may start above the inverts flowing into it)"
+      ]
+    }
+  ],
+  "round": 1
+}

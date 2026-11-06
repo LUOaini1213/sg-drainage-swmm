@@ -160,7 +160,7 @@ docs/        README template and sources with clause references
 - Upsizing never shrinks a section and restores compliance.
 - README numbers checked against `results/`.
 
-**Mutation test of the tests** ([`mutation/run_mutants.py`](mutation/run_mutants.py), report in [`results/mutation_report.json`](results/mutation_report.json)). The script plants {{mutation_report.n_mutants}} deliberate bugs, one at a time, in a scratch copy of the repo. It first checks that the unmodified suite passes and that every mutant compiles. The suite killed **{{mutation_report.n_killed}} of {{mutation_report.n_mutants}}** mutants. Survivors: {{mutation_report.survivors|list}}.
+**Mutation test of the tests** ([`mutation/run_mutants.py`](mutation/run_mutants.py), report in [`results/mutation_report.json`](results/mutation_report.json)). The script plants {{mutation_report.n_mutants}} deliberate bugs, one at a time, in a scratch copy of the repo. It first checks that the unmodified suite passes and that every mutant compiles. In the first round the suite killed {{mutation_report.history.0.n_killed}} of {{mutation_report.history.0.n_mutants}} mutants. The survivors were {{mutation_report.history.0.survivors|list}}. The second survived because that level constraint never binds in this network. Tests were then added that check each section criterion flag on its own and force the level constraint to bind. In the latest round (round {{mutation_report.round}}, {{mutation_report.baseline_passed}} tests) the suite killed **{{mutation_report.n_killed}} of {{mutation_report.n_mutants}}**. Survivors: {{mutation_report.survivors|list}}.
 
 ## Sources
 

@@ -112,3 +112,42 @@ def test_committed_design_table_reproduces(design):
     s = read_json("design_summary.json")
     assert s["max_utilisation"] == round(max(r.utilisation for r in design), 3)
     assert s["all_compliant"] is True
+
+
+def test_check_section_flags_each_criterion_independently():
+    n = rational.N_CONCRETE
+    cases = [
+        (0.05, 1.5, 1.0, 1 / 1000),   # slow: below the self-cleansing velocity
+        (3.00, 0.8, 0.8, 1 / 300),    # too much flow: into the freeboard
+        (1.00, 0.6, 1.0, 1 / 15),     # steep: fast and supercritical
+        (0.30, 1.0, 0.6, 1 / 120),    # shallow and quick: Froude above 0.8
+        (0.40, 0.6, 0.6, 1 / 250),    # a passing case (reach B1 of the design)
+    ]
+    seen = {"vmin": False, "freeboard": False, "vmax": False, "froude": False, "ok": False}
+    for q, b, d, s in cases:
+        chk = rational.check_section(q, b, d, s)
+        y = hy.normal_depth(q, b, s, n)
+        yv = min(y, d)
+        v = hy.manning_v(b, yv, s, n)
+        fr = v / (9.81 * yv) ** 0.5
+        assert chk.freeboard_ok == (y <= 0.85 * d)
+        assert chk.vmin_ok == (v >= 1.0)
+        assert chk.vmax_ok == (v <= 3.0)
+        assert chk.froude_ok == (fr <= 0.8)
+        assert chk.ok == (chk.freeboard_ok and chk.vmin_ok and chk.vmax_ok and chk.froude_ok)
+        seen["vmin"] |= not chk.vmin_ok
+        seen["freeboard"] |= not chk.freeboard_ok
+        seen["vmax"] |= not chk.vmax_ok
+        seen["froude"] |= not chk.froude_ok
+        seen["ok"] |= chk.ok
+    assert all(seen.values()), seen     # every criterion fails at least once, one case passes
+
+
+def test_levels_no_upward_step_when_binding(net, secs):
+    # make M1 very deep so that M2 (shallow) would start above M1's outlet
+    alt = dict(secs)
+    alt["M1"] = (secs["M1"][0], 2.0, secs["M1"][2])
+    alt["M2"] = (secs["M2"][0], 0.6, secs["M2"][2])
+    inv = rational.inverts(net, alt)
+    assert inv["M2"]["inv_up"] <= inv["M1"]["inv_dn"] + 1e-9
+    assert inv["M2"]["inv_up"] < net.nodes["J2"].ground - 0.6 - 1e-6   # the constraint bound

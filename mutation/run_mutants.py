@@ -157,6 +157,19 @@ def main() -> None:
         "mutants": results,
     }
     out_path = REPO / "results" / "mutation_report.json"
+    # keep the history of earlier rounds (tests are strengthened between rounds)
+    history = []
+    if out_path.exists():
+        prev = json.loads(out_path.read_text())
+        history = prev.get("history") or [{
+            "round": 1, "baseline_passed": prev["baseline_passed"],
+            "n_mutants": prev["n_mutants"], "n_killed": prev["n_killed"],
+            "survivors": prev["survivors"]}]
+    report["history"] = history + [{
+        "round": len(history) + 1, "baseline_passed": baseline,
+        "n_mutants": report["n_mutants"], "n_killed": report["n_killed"],
+        "survivors": report["survivors"]}]
+    report["round"] = len(report["history"])
     out_path.write_text(json.dumps(report, indent=2) + "\n")
     sys.path.insert(0, str(REPO))
     from sgdrain import readme
