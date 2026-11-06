@@ -255,9 +255,10 @@ def sweep_plot(rat_csv: Path, swmm_csv: Path, path: Path):
     ax.set_xlabel("uplift on 10-yr intensity (%)")
     ax.set_ylabel("SWMM total overtopping volume (m3)")
     ax.set_title("(b) SWMM check of the design sizes", loc="left")
-    for a in axes:
+    for a, yfrac in zip(axes, (0.45, 0.92)):
         a.axvspan(6, 92, color="#f0efec", zorder=-2)
-        a.text(49, a.get_ylim()[1] * 0.97, "V3 extreme-daily-rainfall range\n(Apr-May, 6-92%)",
+        lo, hi = a.get_ylim()
+        a.text(49, lo + yfrac * (hi - lo), "V3 extreme-daily-rainfall range\n(Apr-May, 6-92%)",
                ha="center", va="top", fontsize=7, color=MUTED)
     fig.tight_layout()
     _save(fig, path)

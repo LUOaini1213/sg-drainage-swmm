@@ -157,13 +157,13 @@ def _solve_reach(r: Reach, tc_up: float, sum_ca: float, T: int, uplift: float,
             chk = chooser(q)
             return tc_new, chk, q, it, True, abs(tc_new - tc)
         # discrete sizes can make the iteration cycle between two sections:
-        # resolve conservatively with the larger flow of the cycle
+        # resolve conservatively with the larger flow of the cycle and flag it
         if any(abs(tc_new - h[0]) < TC_TOL_MIN for h in history[:-1]):
             cyc = [h for h in history if h[0] >= min(tc_new, tc) - TC_TOL_MIN]
             tc_c = min(h[0] for h in cyc)
             q = cop.rational_q(1.0, idf.intensity(T, tc_c, uplift), sum_ca)
             chk = chooser(q)
-            return tc_c, chk, q, it, True, abs(tc_new - tc)
+            return tc_c, chk, q, it, False, abs(tc_new - tc)  # flagged: not a true fixed point
         tc = tc_new
     return tc, chk, q, MAX_ITER, False, abs(tc_new - tc)
 

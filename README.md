@@ -112,9 +112,10 @@ SWMM peaks are higher than the rational Qr in every reach (ratio 1.25 to 1.36). 
 - **Duration factor** = peak 5-minute block intensity / IDF intensity at the overland time used in the rational method. The rational method applies the intensity for a duration equal to tc, with a 5 to 15 min overland time. SWMM's surface runoff from short, smooth paved areas responds within minutes, so it picks up the 5-minute peak that the alternating-block storm contains. Range: 1.00 to 1.24.
 - **Runoff factor** = (SWMM peak runoff / peak rainfall rate on the area) / COP C. SWMM's losses (depression storage plus Green-Ampt infiltration in a clay-loam soil) remove less water at the peak than the COP coefficients imply. Range: 1.10 to 1.26. Event runoff coefficients in SWMM are 0.893 to 0.977, against COP C of 0.64 to 0.91.
 - In the network, routing through the drains attenuates and offsets the sub-catchment peaks, which fits the reach ratios lying between the sub-catchment extremes. Where a drain runs full, SWMM also caps the flow: `SWMM max y/D` reaches the full drain depth, and the excess overtops at the upstream node.
+- SWMM's peak velocity also exceeds the COP's 3.0 m/s limit in reach(es) M4. The rational check at normal depth does not show this.
 - A sandier soil (sandy loam, SWMM manual Table A.2) lowers the event runoff coefficient to 0.864 but barely moves the outfall peak (6.217 m3/s). Overtopping falls to 109 m3. Losses matter less than timing for these peaks.
 
-**SWMM-led upsizing (heuristic).** Repeatedly enlarging the most downstream failing reaches by one catalogue step, until SWMM shows no overtopping and no reach deeper than 0.85 D, takes 11 reaches and +28.7% drain volume for the design storm. The heuristic only targets depth: its final peak velocity is 3 m/s against the COP limit of 3.0 m/s. It is not proven minimal.
+**SWMM-led upsizing (heuristic).** Repeatedly enlarging the most downstream failing reaches by one catalogue step, until SWMM shows no overtopping and no reach deeper than 0.85 D, takes 11 reaches and +28.7% drain volume for the design storm. The heuristic only targets depth: its final peak velocity is 3.00 m/s against the COP limit of 3.0 m/s. It is not proven minimal.
 
 ![SWMM vs rational](results/figures/swmm_vs_rational.png)
 

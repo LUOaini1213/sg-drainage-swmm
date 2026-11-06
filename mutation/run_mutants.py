@@ -90,7 +90,8 @@ def copy_repo(dst: Path) -> Path:
 def run_pytest(cwd: Path, timeout: int = 900) -> tuple[int, str, float]:
     t0 = time.time()
     try:
-        p = subprocess.run([sys.executable, "-m", "pytest", "-x", "-q", "-p", "no:cacheprovider"],
+        p = subprocess.run([sys.executable, "-m", "pytest", "-x", "-q", "-o", "addopts=",
+                            "-p", "no:cacheprovider"],
                            cwd=cwd, capture_output=True, text=True, timeout=timeout)
         return p.returncode, p.stdout + p.stderr, time.time() - t0
     except subprocess.TimeoutExpired as e:
