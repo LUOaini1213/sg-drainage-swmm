@@ -1,0 +1,18 @@
+{
+  "overland_5min": {
+    "outfall_q_m3s": 5.566,
+    "outfall_q_change_pct": 20.8,
+    "n_size_changes": 9
+  },
+  "overland_15min": {
+    "outfall_q_m3s": 4.561,
+    "outfall_q_change_pct": -1.0,
+    "n_size_changes": 5
+  },
+  "idf_minus1pct": {
+    "n_size_changes": 1
+  },
+  "idf_plus1pct": {
+    "n_size_changes": 3
+  }
+}

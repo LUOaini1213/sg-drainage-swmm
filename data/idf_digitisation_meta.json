@@ -1,0 +1,82 @@
+{
+  "source": "PUB Code of Practice on Surface Water Drainage, 7th Edition (Dec 2018) with amendments under Addendum No. 3 (April 2025), Appendix 4 'Rainfall Intensity-Duration-Frequency Curves for Singapore Island', printed page 49 (PDF page 68)",
+  "pdf_sha256": "e52ba4f37b5ca127d24d0f5c1c3cbd78c0342e33ce3775e762e478f36bb86d92",
+  "chart_pixels": [
+    1512,
+    1015
+  ],
+  "time_gridlines_px": [
+    149.5,
+    232.5,
+    290.5,
+    335.5,
+    373.0,
+    405.0,
+    431.0,
+    455.5,
+    478.0,
+    618.5,
+    701.0,
+    759.5,
+    804.5,
+    842.0,
+    873.5,
+    900.0,
+    924.5,
+    947.0,
+    1087.5,
+    1170.0,
+    1228.0,
+    1275.0,
+    1310.5,
+    1342.5,
+    1370.5,
+    1393.5,
+    1415.5
+  ],
+  "intensity_gridlines_px": [
+    37.5,
+    78.5,
+    134.5,
+    213.5,
+    350.5,
+    369.0,
+    393.5,
+    419.5,
+    449.5,
+    485.5,
+    528.5,
+    584.5,
+    663.0,
+    800.0,
+    935.0
+  ],
+  "log_axis_max_deviation_px": {
+    "time": 0.9570764475658962,
+    "intensity": 2.0237670384719877
+  },
+  "pixels_per_decade_intensity": 449.6,
+  "one_pixel_reading_uncertainty_pct": 0.51,
+  "points_traced": {
+    "100": 730,
+    "50": 717,
+    "25": 745,
+    "15": 743,
+    "10": 734,
+    "5": 735,
+    "3": 757,
+    "2": 744
+  },
+  "outliers_rejected": {
+    "100": 5,
+    "50": 1,
+    "25": 5,
+    "15": 3,
+    "10": 2,
+    "5": 5,
+    "3": 0,
+    "2": 3
+  },
+  "max_local_fit_residual_px": 1.33,
+  "method": "piecewise log-axis calibration on detected grid lines; column-wise tracking of the 8 curves (runs 2-6 px tall, grid-line bands masked); intensity at each tabulated duration from a local linear fit of traced points within +-8..45 px after rejecting points >1.5 px off a local line"
+}

@@ -1,0 +1,924 @@
+{
+  "n_runs": 183,
+  "max_abs_runoff_continuity_error_pct": 0.031,
+  "max_abs_routing_continuity_error_pct": 0.163,
+  "max_abs_continuity_error_pct": 0.163,
+  "threshold_pct": 1.0,
+  "runs": [
+    {
+      "name": "design_10yr",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "design_10yr_sandy_loam",
+      "runoff": -0.03,
+      "routing": -0.163
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.027,
+      "routing": -0.092
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.027,
+      "routing": -0.076
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.027,
+      "routing": -0.032
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.027,
+      "routing": -0.001
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.027,
+      "routing": -0.05
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.027,
+      "routing": -0.05
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.027,
+      "routing": 0.063
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.027,
+      "routing": 0.111
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.027,
+      "routing": 0.065
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.027,
+      "routing": 0.073
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.027,
+      "routing": 0.099
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.027,
+      "routing": 0.051
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.027,
+      "routing": 0.115
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.027,
+      "routing": 0.068
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.027,
+      "routing": 0.046
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.027,
+      "routing": 0.076
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.027,
+      "routing": 0.088
+    },
+    {
+      "name": "greedy_final",
+      "runoff": -0.027,
+      "routing": 0.088
+    },
+    {
+      "name": "cc_v3_low_existing",
+      "runoff": -0.028,
+      "routing": -0.116
+    },
+    {
+      "name": "cc_v3_low_upsized",
+      "runoff": -0.028,
+      "routing": -0.133
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": -0.116
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": -0.076
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": -0.051
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": -0.038
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": -0.002
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": -0.039
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": -0.018
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": -0.06
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": -0.091
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": -0.051
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": 0.071
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": 0.086
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": 0.073
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": 0.051
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": -0.118
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": -0.097
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": 0.078
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": 0.126
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": 0.064
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": 0.029
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": 0.06
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": 0.101
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.028,
+      "routing": 0.113
+    },
+    {
+      "name": "greedy_final",
+      "runoff": -0.028,
+      "routing": 0.113
+    },
+    {
+      "name": "cc_v3_high_existing",
+      "runoff": -0.031,
+      "routing": -0.034
+    },
+    {
+      "name": "cc_v3_high_upsized",
+      "runoff": -0.031,
+      "routing": -0.013
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": -0.034
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": -0.016
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": -0.009
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": -0.002
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": -0.004
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": -0.002
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.024
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.023
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.024
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.017
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.019
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.008
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.005
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.004
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.02
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": -0.005
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.007
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": -0.016
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.012
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.019
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.001
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.011
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": -0.007
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.03
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.041
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.02
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.002
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.039
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.006
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.034
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.016
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.029
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.025
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.025
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.031
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.021
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.02
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.013
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.04
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.024
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.023
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.039
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.02
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.02
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.04
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.027
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.027
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.027
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.031
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.017
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.018
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.039
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.033
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.07
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.073
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.079
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.097
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.097
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.109
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.003
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.016
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.013
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.031,
+      "routing": 0.013
+    },
+    {
+      "name": "greedy_final",
+      "runoff": -0.031,
+      "routing": 0.013
+    },
+    {
+      "name": "t100_existing",
+      "runoff": -0.029,
+      "routing": -0.077
+    },
+    {
+      "name": "t100_upsized",
+      "runoff": -0.029,
+      "routing": -0.058
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.077
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.058
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.037
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.033
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.031
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": 0.023
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": 0.034
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": 0.007
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.007
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": 0.001
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.016
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.014
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": 0.006
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": 0.016
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.024
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.008
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.02
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.046
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.064
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.039
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.001
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": 0.027
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.015
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.026
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.017
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.054
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.064
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.02
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.021
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.014
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.073
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": 0.027
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": 0.041
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": 0.01
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.006
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": -0.004
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": 0.003
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": 0.003
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": 0.003
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": 0.002
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": 0.002
+    },
+    {
+      "name": "greedy",
+      "runoff": -0.029,
+      "routing": 0.002
+    },
+    {
+      "name": "greedy_final",
+      "runoff": -0.029,
+      "routing": 0.002
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.028,
+      "routing": -0.111
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.028,
+      "routing": -0.115
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.028,
+      "routing": -0.091
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.028,
+      "routing": -0.083
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.028,
+      "routing": -0.068
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.029,
+      "routing": -0.054
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.029,
+      "routing": -0.035
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.029,
+      "routing": -0.028
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.029,
+      "routing": -0.043
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.029,
+      "routing": -0.067
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.029,
+      "routing": -0.062
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.029,
+      "routing": -0.051
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.03,
+      "routing": -0.056
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.03,
+      "routing": -0.034
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.03,
+      "routing": -0.032
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.03,
+      "routing": -0.032
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.031,
+      "routing": -0.033
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.031,
+      "routing": -0.033
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.031,
+      "routing": -0.026
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.031,
+      "routing": -0.027
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.031,
+      "routing": -0.021
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.031,
+      "routing": -0.019
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.031,
+      "routing": -0.034
+    },
+    {
+      "name": "sweep",
+      "runoff": -0.031,
+      "routing": -0.034
+    }
+  ]
+}

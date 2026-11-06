@@ -1,0 +1,137 @@
+{
+  "cop": {
+    "edition": "PUB Code of Practice on Surface Water Drainage, Seventh Edition (Dec 2018) with amendments under Addendum No. 3 (April 2025)",
+    "rational_divisor": 360.0,
+    "runoff_c": {
+      "road": 1.0,
+      "urban": 0.9,
+      "vegetated": 0.45
+    },
+    "return_period_by_area": [
+      [
+        100.0,
+        10
+      ],
+      [
+        1000.0,
+        25
+      ],
+      [
+        null,
+        50
+      ]
+    ],
+    "overland_time_min_range": [
+      5.0,
+      15.0
+    ],
+    "manning_n_concrete": 0.015,
+    "v_min": 1.0,
+    "v_max_concrete": 3.0,
+    "froude_max": 0.8,
+    "freeboard_fraction": 0.15,
+    "freeboard_pct": 15,
+    "min_drain_dimension_m": 0.6,
+    "min_drain_dimension_mm": 600
+  },
+  "catchment": {
+    "total_area_ha": 12.6,
+    "n_subcatchments": 11,
+    "n_reaches": 11,
+    "n_main_reaches": 4,
+    "total_drain_length_m": 1020.0,
+    "design_return_period_yr": 10,
+    "c_min": 0.64,
+    "c_max": 0.9075,
+    "overland_time_values_min": [
+      5,
+      10,
+      15
+    ],
+    "overland_length_min_m": 30,
+    "overland_length_max_m": 60
+  },
+  "sweep": {
+    "rational_step_pct": 1,
+    "swmm_step_pct": 4,
+    "max_pct": 92
+  },
+  "catalogue": {
+    "width_min_m": 0.6,
+    "width_max_m": 3.0,
+    "depth_min_m": 0.6,
+    "depth_max_m": 2.0,
+    "step_m": 0.1
+  },
+  "storm": {
+    "duration_min": 120,
+    "dt_min": 5,
+    "design_peak_block_mm_hr": 215.6,
+    "design_depth_mm": 113.8,
+    "idf_i10_5min": 215.6,
+    "idf_i10_60min": 92.0,
+    "idf_i100_60min": 129.5
+  },
+  "swmm": {
+    "hydrology": {
+      "impervious_fraction": {
+        "road": 1.0,
+        "urban": 0.9,
+        "vegetated": 0.0
+      },
+      "n_imperv": 0.011,
+      "n_perv": 0.15,
+      "dstore_imperv_mm": 1.27,
+      "dstore_perv_mm": 2.54,
+      "pct_zero_imperv": 25,
+      "ga_suction_mm": 210.1,
+      "ga_ksat_mm_hr": 1.016,
+      "ga_initial_deficit": 0.154
+    },
+    "options": {
+      "routing_step_s": 1,
+      "report_step": "00:01:00",
+      "sim_hours": 4
+    },
+    "impervious_pct": {
+      "road": 100,
+      "urban": 90,
+      "vegetated": 0
+    },
+    "soil_sensitivity_sandy_loam": {
+      "ga_suction_mm": 110.0,
+      "ga_ksat_mm_hr": 10.92,
+      "ga_initial_deficit": 0.263
+    },
+    "freeboard_depth_ratio": 0.85
+  },
+  "stress": {
+    "cc_v3_low": {
+      "T": 10,
+      "uplift": 0.06,
+      "label": "10-yr storm +6% (low end of V3 range)"
+    },
+    "cc_v3_high": {
+      "T": 10,
+      "uplift": 0.92,
+      "label": "10-yr storm +92% (high end of V3 range, bounding)"
+    },
+    "t100": {
+      "T": 100,
+      "uplift": 0.0,
+      "label": "100-yr storm, COP Appendix 4 curve"
+    }
+  },
+  "stress_uplift_pct": {
+    "cc_v3_low": 6,
+    "cc_v3_high": 92,
+    "t100": 0
+  },
+  "idf_digitisation": {
+    "one_pixel_reading_uncertainty_pct": 0.51,
+    "max_local_fit_residual_px": 1.33,
+    "n_durations": 27,
+    "duration_min": 5.0,
+    "duration_max": 600.0
+  }
+}

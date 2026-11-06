@@ -1,0 +1,5 @@
+# Only needed to re-digitise the IDF chart from a local copy of the COP PDF
+# (tools/digitize_idf.py).  The pipeline and tests do not need these.
+pymupdf==2.1
+pillow==13.0.0
+numpy==2.4.6

@@ -1,0 +1,50 @@
+{
+  "_note": "SYNTHETIC catchment for a screening exercise. Not a real site. Coordinates in metres on a local grid; levels in metres above an arbitrary local datum (not SHD).",
+  "name": "Synthetic residential estate (12.6 ha)",
+  "nodes": [
+    {"id": "J1", "x": 0,   "y": 150, "ground": 10.00},
+    {"id": "J2", "x": 120, "y": 150, "ground": 9.60},
+    {"id": "J3", "x": 240, "y": 150, "ground": 9.20},
+    {"id": "J4", "x": 360, "y": 150, "ground": 8.80},
+    {"id": "OF", "x": 420, "y": 150, "ground": 8.60, "outfall": true},
+    {"id": "B1", "x": 120, "y": 300, "ground": 10.20},
+    {"id": "B2", "x": 120, "y": 225, "ground": 9.90},
+    {"id": "C1", "x": 240, "y": 0,   "ground": 9.63},
+    {"id": "C2", "x": 240, "y": 75,  "ground": 9.41},
+    {"id": "D1", "x": 360, "y": 300, "ground": 9.55},
+    {"id": "D2", "x": 360, "y": 225, "ground": 9.18},
+    {"id": "E1", "x": 360, "y": 0,   "ground": 9.18}
+  ],
+  "reaches": [
+    {"id": "M1", "from": "J1", "to": "J2", "main": true},
+    {"id": "M2", "from": "J2", "to": "J3", "main": true},
+    {"id": "M3", "from": "J3", "to": "J4", "main": true},
+    {"id": "M4", "from": "J4", "to": "OF", "main": true},
+    {"id": "B1", "from": "B1", "to": "B2"},
+    {"id": "B2", "from": "B2", "to": "J2"},
+    {"id": "C1", "from": "C1", "to": "C2"},
+    {"id": "C2", "from": "C2", "to": "J3"},
+    {"id": "D1", "from": "D1", "to": "D2"},
+    {"id": "D2", "from": "D2", "to": "J4"},
+    {"id": "E1", "from": "E1", "to": "J4"}
+  ],
+  "land_use_types": {
+    "residential": {"road": 0.20, "urban": 0.65, "vegetated": 0.15, "overland_time_min": 10, "overland_length_m": 40, "slope_pct": 1.0},
+    "residential_park": {"road": 0.10, "urban": 0.30, "vegetated": 0.60, "overland_time_min": 15, "overland_length_m": 60, "slope_pct": 1.0},
+    "school": {"road": 0.15, "urban": 0.45, "vegetated": 0.40, "overland_time_min": 15, "overland_length_m": 60, "slope_pct": 1.0},
+    "commercial": {"road": 0.30, "urban": 0.65, "vegetated": 0.05, "overland_time_min": 5, "overland_length_m": 30, "slope_pct": 1.0}
+  },
+  "subcatchments": [
+    {"id": "S01", "outlet": "J1", "land_use": "residential",      "rect": [0, 150, 120, 300]},
+    {"id": "S02", "outlet": "J1", "land_use": "residential_park", "rect": [0, 0, 120, 150]},
+    {"id": "S03", "outlet": "B1", "land_use": "residential",      "rect": [120, 225, 240, 300]},
+    {"id": "S04", "outlet": "B2", "land_use": "residential",      "rect": [120, 150, 240, 225]},
+    {"id": "S05", "outlet": "C1", "land_use": "residential",      "rect": [120, 0, 240, 75]},
+    {"id": "S06", "outlet": "C2", "land_use": "residential",      "rect": [120, 75, 240, 150]},
+    {"id": "S07", "outlet": "D1", "land_use": "residential",      "rect": [240, 225, 360, 300]},
+    {"id": "S08", "outlet": "D2", "land_use": "residential",      "rect": [240, 150, 360, 225]},
+    {"id": "S09", "outlet": "E1", "land_use": "school",           "rect": [240, 0, 360, 150]},
+    {"id": "S10", "outlet": "J4", "land_use": "commercial",       "rect": [360, 150, 420, 300]},
+    {"id": "S11", "outlet": "J4", "land_use": "commercial",       "rect": [360, 0, 420, 150]}
+  ]
+}

@@ -1,0 +1,698 @@
+{
+  "scenarios": {
+    "cc_v3_low": {
+      "T": 10,
+      "uplift": 0.06,
+      "label": "10-yr storm +6% (low end of V3 range)",
+      "uplift_pct": 6,
+      "rational_failing_reaches": [
+        "B1",
+        "C2",
+        "E1",
+        "M1",
+        "M2",
+        "M3",
+        "M4"
+      ],
+      "n_rational_failing": 7,
+      "rational_fail_criteria": {
+        "M1": [
+          "freeboard"
+        ],
+        "B1": [
+          "freeboard"
+        ],
+        "C2": [
+          "freeboard"
+        ],
+        "E1": [
+          "freeboard"
+        ],
+        "M2": [
+          "freeboard"
+        ],
+        "M3": [
+          "freeboard"
+        ],
+        "M4": [
+          "freeboard"
+        ]
+      },
+      "max_utilisation_existing": 1.057,
+      "outfall_q_m3s": 4.887,
+      "upsized_reaches": {
+        "M1": {
+          "from": "1.1 x 0.8",
+          "to": "1.2 x 0.8",
+          "area_increase_pct": 9
+        },
+        "B1": {
+          "from": "0.6 x 0.6",
+          "to": "0.7 x 0.6",
+          "area_increase_pct": 17
+        },
+        "C2": {
+          "from": "1.1 x 0.6",
+          "to": "1.2 x 0.6",
+          "area_increase_pct": 9
+        },
+        "E1": {
+          "from": "0.8 x 0.7",
+          "to": "0.9 x 0.7",
+          "area_increase_pct": 13
+        },
+        "M2": {
+          "from": "1.2 x 1.0",
+          "to": "1.3 x 1.0",
+          "area_increase_pct": 8
+        },
+        "M3": {
+          "from": "1.5 x 1.0",
+          "to": "1.6 x 1.0",
+          "area_increase_pct": 7
+        },
+        "M4": {
+          "from": "1.9 x 1.2",
+          "to": "2.0 x 1.2",
+          "area_increase_pct": 5
+        }
+      },
+      "n_upsized": 7,
+      "upsized_all_compliant": true,
+      "drain_volume_increase_pct": 6.9,
+      "swmm_existing": {
+        "flooded_nodes": [
+          "J1",
+          "J2",
+          "J3",
+          "B1",
+          "B2",
+          "C1",
+          "C2",
+          "D2",
+          "E1"
+        ],
+        "reaches_into_freeboard": [
+          "M1",
+          "B1",
+          "B2",
+          "C1",
+          "C2",
+          "D1",
+          "D2",
+          "E1",
+          "M2",
+          "M3",
+          "M4"
+        ],
+        "reaches_over_vmax": [
+          "M4"
+        ],
+        "flood_volume_m3": 387.0,
+        "n_flooded_nodes": 9,
+        "routing_continuity_error_pct": -0.116,
+        "runoff_continuity_error_pct": -0.028
+      },
+      "swmm_upsized": {
+        "flooded_nodes": [
+          "J1",
+          "J2",
+          "J3",
+          "B2",
+          "C1",
+          "D2",
+          "E1"
+        ],
+        "reaches_into_freeboard": [
+          "M1",
+          "B1",
+          "B2",
+          "C1",
+          "C2",
+          "D1",
+          "D2",
+          "E1",
+          "M2",
+          "M3",
+          "M4"
+        ],
+        "reaches_over_vmax": [
+          "M4"
+        ],
+        "flood_volume_m3": 150.0,
+        "n_flooded_nodes": 7,
+        "routing_continuity_error_pct": -0.133,
+        "runoff_continuity_error_pct": -0.028
+      },
+      "swmm_greedy_upsizing": {
+        "rounds": 22,
+        "changed": {
+          "M1": {
+            "from": "1.1 x 0.8",
+            "to": "1.5 x 0.8"
+          },
+          "B1": {
+            "from": "0.6 x 0.6",
+            "to": "0.8 x 0.6"
+          },
+          "B2": {
+            "from": "1.0 x 0.6",
+            "to": "1.1 x 0.6"
+          },
+          "C1": {
+            "from": "0.7 x 0.6",
+            "to": "1.0 x 0.6"
+          },
+          "C2": {
+            "from": "1.1 x 0.6",
+            "to": "1.2 x 0.6"
+          },
+          "D1": {
+            "from": "0.6 x 0.6",
+            "to": "0.7 x 0.6"
+          },
+          "D2": {
+            "from": "0.8 x 0.7",
+            "to": "0.9 x 0.7"
+          },
+          "E1": {
+            "from": "0.8 x 0.7",
+            "to": "1.1 x 0.7"
+          },
+          "M2": {
+            "from": "1.2 x 1.0",
+            "to": "1.7 x 1.0"
+          },
+          "M3": {
+            "from": "1.5 x 1.0",
+            "to": "2.2 x 1.0"
+          },
+          "M4": {
+            "from": "1.9 x 1.2",
+            "to": "2.5 x 1.2"
+          }
+        },
+        "n_changed": 11,
+        "drain_volume_increase_pct": 34.2,
+        "final_flood_volume_m3": 0.0,
+        "final_max_over_full_depth": 0.85,
+        "final_routing_continuity_error_pct": 0.113,
+        "final_runoff_continuity_error_pct": -0.028,
+        "final_max_velocity_ms": 3.0
+      }
+    },
+    "cc_v3_high": {
+      "T": 10,
+      "uplift": 0.92,
+      "label": "10-yr storm +92% (high end of V3 range, bounding)",
+      "uplift_pct": 92,
+      "rational_failing_reaches": [
+        "B1",
+        "B2",
+        "C1",
+        "C2",
+        "D1",
+        "D2",
+        "E1",
+        "M1",
+        "M2",
+        "M3",
+        "M4"
+      ],
+      "n_rational_failing": 11,
+      "rational_fail_criteria": {
+        "M1": [
+          "freeboard"
+        ],
+        "B1": [
+          "freeboard"
+        ],
+        "B2": [
+          "freeboard"
+        ],
+        "C1": [
+          "freeboard"
+        ],
+        "C2": [
+          "freeboard"
+        ],
+        "D1": [
+          "freeboard"
+        ],
+        "D2": [
+          "freeboard"
+        ],
+        "E1": [
+          "freeboard"
+        ],
+        "M2": [
+          "freeboard"
+        ],
+        "M3": [
+          "freeboard"
+        ],
+        "M4": [
+          "freeboard"
+        ]
+      },
+      "max_utilisation_existing": 1.917,
+      "outfall_q_m3s": 8.873,
+      "upsized_reaches": {
+        "M1": {
+          "from": "1.1 x 0.8",
+          "to": "1.3 x 1.1",
+          "area_increase_pct": 62
+        },
+        "B1": {
+          "from": "0.6 x 0.6",
+          "to": "1.0 x 0.6",
+          "area_increase_pct": 67
+        },
+        "B2": {
+          "from": "1.0 x 0.6",
+          "to": "1.2 x 0.8",
+          "area_increase_pct": 60
+        },
+        "C1": {
+          "from": "0.7 x 0.6",
+          "to": "0.9 x 0.7",
+          "area_increase_pct": 50
+        },
+        "C2": {
+          "from": "1.1 x 0.6",
+          "to": "1.8 x 0.6",
+          "area_increase_pct": 64
+        },
+        "D1": {
+          "from": "0.6 x 0.6",
+          "to": "0.8 x 0.7",
+          "area_increase_pct": 56
+        },
+        "D2": {
+          "from": "0.8 x 0.7",
+          "to": "1.0 x 0.9",
+          "area_increase_pct": 61
+        },
+        "E1": {
+          "from": "0.8 x 0.7",
+          "to": "1.3 x 0.7",
+          "area_increase_pct": 62
+        },
+        "M2": {
+          "from": "1.2 x 1.0",
+          "to": "1.8 x 1.1",
+          "area_increase_pct": 65
+        },
+        "M3": {
+          "from": "1.5 x 1.0",
+          "to": "1.9 x 1.3",
+          "area_increase_pct": 65
+        },
+        "M4": {
+          "from": "1.9 x 1.2",
+          "to": "2.2 x 1.7",
+          "area_increase_pct": 64
+        }
+      },
+      "n_upsized": 11,
+      "upsized_all_compliant": true,
+      "drain_volume_increase_pct": 62.9,
+      "swmm_existing": {
+        "flooded_nodes": [
+          "J1",
+          "J2",
+          "J3",
+          "J4",
+          "B1",
+          "B2",
+          "C1",
+          "C2",
+          "D1",
+          "D2",
+          "E1"
+        ],
+        "reaches_into_freeboard": [
+          "M1",
+          "B1",
+          "B2",
+          "C1",
+          "C2",
+          "D1",
+          "D2",
+          "E1",
+          "M2",
+          "M3",
+          "M4"
+        ],
+        "reaches_over_vmax": [
+          "M4"
+        ],
+        "flood_volume_m3": 4690.0,
+        "n_flooded_nodes": 11,
+        "routing_continuity_error_pct": -0.034,
+        "runoff_continuity_error_pct": -0.031
+      },
+      "swmm_upsized": {
+        "flooded_nodes": [
+          "J1",
+          "J2",
+          "B2",
+          "C1",
+          "C2",
+          "E1"
+        ],
+        "reaches_into_freeboard": [
+          "M1",
+          "B1",
+          "B2",
+          "C1",
+          "C2",
+          "D1",
+          "D2",
+          "E1",
+          "M2",
+          "M3",
+          "M4"
+        ],
+        "reaches_over_vmax": [
+          "M4"
+        ],
+        "flood_volume_m3": 450.0,
+        "n_flooded_nodes": 6,
+        "routing_continuity_error_pct": -0.013,
+        "runoff_continuity_error_pct": -0.031
+      },
+      "swmm_greedy_upsizing": {
+        "rounds": 62,
+        "changed": {
+          "M1": {
+            "from": "1.1 x 0.8",
+            "to": "2.4 x 0.8"
+          },
+          "B1": {
+            "from": "0.6 x 0.6",
+            "to": "1.2 x 0.6"
+          },
+          "B2": {
+            "from": "1.0 x 0.6",
+            "to": "1.9 x 0.6"
+          },
+          "C1": {
+            "from": "0.7 x 0.6",
+            "to": "1.5 x 0.6"
+          },
+          "C2": {
+            "from": "1.1 x 0.6",
+            "to": "2.0 x 0.6"
+          },
+          "D1": {
+            "from": "0.6 x 0.6",
+            "to": "1.0 x 0.6"
+          },
+          "D2": {
+            "from": "0.8 x 0.7",
+            "to": "1.5 x 0.7"
+          },
+          "E1": {
+            "from": "0.8 x 0.7",
+            "to": "1.7 x 0.7"
+          },
+          "M2": {
+            "from": "1.2 x 1.0",
+            "to": "2.8 x 1.0"
+          },
+          "M3": {
+            "from": "1.5 x 1.0",
+            "to": "3.0 x 1.1"
+          },
+          "M4": {
+            "from": "1.9 x 1.2",
+            "to": "3.0 x 1.6"
+          }
+        },
+        "n_changed": 11,
+        "drain_volume_increase_pct": 112.0,
+        "final_flood_volume_m3": 0.0,
+        "final_max_over_full_depth": 0.85,
+        "final_routing_continuity_error_pct": 0.013,
+        "final_runoff_continuity_error_pct": -0.031,
+        "final_max_velocity_ms": 3.49
+      }
+    },
+    "t100": {
+      "T": 100,
+      "uplift": 0.0,
+      "label": "100-yr storm, COP Appendix 4 curve",
+      "uplift_pct": 0,
+      "rational_failing_reaches": [
+        "B1",
+        "B2",
+        "C1",
+        "C2",
+        "D1",
+        "D2",
+        "E1",
+        "M1",
+        "M2",
+        "M3",
+        "M4"
+      ],
+      "n_rational_failing": 11,
+      "rational_fail_criteria": {
+        "M1": [
+          "freeboard"
+        ],
+        "B1": [
+          "freeboard"
+        ],
+        "B2": [
+          "freeboard"
+        ],
+        "C1": [
+          "freeboard"
+        ],
+        "C2": [
+          "freeboard"
+        ],
+        "D1": [
+          "freeboard"
+        ],
+        "D2": [
+          "freeboard"
+        ],
+        "E1": [
+          "freeboard"
+        ],
+        "M2": [
+          "freeboard"
+        ],
+        "M3": [
+          "freeboard"
+        ],
+        "M4": [
+          "freeboard"
+        ]
+      },
+      "max_utilisation_existing": 1.392,
+      "outfall_q_m3s": 6.441,
+      "upsized_reaches": {
+        "M1": {
+          "from": "1.1 x 0.8",
+          "to": "1.4 x 0.8",
+          "area_increase_pct": 27
+        },
+        "B1": {
+          "from": "0.6 x 0.6",
+          "to": "0.8 x 0.6",
+          "area_increase_pct": 33
+        },
+        "B2": {
+          "from": "1.0 x 0.6",
+          "to": "1.1 x 0.7",
+          "area_increase_pct": 28
+        },
+        "C1": {
+          "from": "0.7 x 0.6",
+          "to": "0.9 x 0.6",
+          "area_increase_pct": 29
+        },
+        "C2": {
+          "from": "1.1 x 0.6",
+          "to": "1.4 x 0.6",
+          "area_increase_pct": 27
+        },
+        "D1": {
+          "from": "0.6 x 0.6",
+          "to": "0.7 x 0.6",
+          "area_increase_pct": 17
+        },
+        "D2": {
+          "from": "0.8 x 0.7",
+          "to": "0.9 x 0.8",
+          "area_increase_pct": 29
+        },
+        "E1": {
+          "from": "0.8 x 0.7",
+          "to": "0.9 x 0.8",
+          "area_increase_pct": 29
+        },
+        "M2": {
+          "from": "1.2 x 1.0",
+          "to": "1.4 x 1.1",
+          "area_increase_pct": 28
+        },
+        "M3": {
+          "from": "1.5 x 1.0",
+          "to": "1.6 x 1.2",
+          "area_increase_pct": 28
+        },
+        "M4": {
+          "from": "1.9 x 1.2",
+          "to": "2.1 x 1.4",
+          "area_increase_pct": 29
+        }
+      },
+      "n_upsized": 11,
+      "upsized_all_compliant": true,
+      "drain_volume_increase_pct": 28.0,
+      "swmm_existing": {
+        "flooded_nodes": [
+          "J1",
+          "J2",
+          "J3",
+          "B1",
+          "B2",
+          "C1",
+          "C2",
+          "D1",
+          "D2",
+          "E1"
+        ],
+        "reaches_into_freeboard": [
+          "M1",
+          "B1",
+          "B2",
+          "C1",
+          "C2",
+          "D1",
+          "D2",
+          "E1",
+          "M2",
+          "M3",
+          "M4"
+        ],
+        "reaches_over_vmax": [
+          "M4"
+        ],
+        "flood_volume_m3": 1647.0,
+        "n_flooded_nodes": 10,
+        "routing_continuity_error_pct": -0.077,
+        "runoff_continuity_error_pct": -0.029
+      },
+      "swmm_upsized": {
+        "flooded_nodes": [
+          "J1",
+          "J2",
+          "J3",
+          "B2",
+          "C2",
+          "D1",
+          "E1"
+        ],
+        "reaches_into_freeboard": [
+          "M1",
+          "B1",
+          "B2",
+          "C1",
+          "C2",
+          "D1",
+          "D2",
+          "E1",
+          "M2",
+          "M3",
+          "M4"
+        ],
+        "reaches_over_vmax": [
+          "M4"
+        ],
+        "flood_volume_m3": 368.0,
+        "n_flooded_nodes": 7,
+        "routing_continuity_error_pct": -0.058,
+        "runoff_continuity_error_pct": -0.029
+      },
+      "swmm_greedy_upsizing": {
+        "rounds": 41,
+        "changed": {
+          "M1": {
+            "from": "1.1 x 0.8",
+            "to": "1.8 x 0.8"
+          },
+          "B1": {
+            "from": "0.6 x 0.6",
+            "to": "1.0 x 0.6"
+          },
+          "B2": {
+            "from": "1.0 x 0.6",
+            "to": "1.4 x 0.6"
+          },
+          "C1": {
+            "from": "0.7 x 0.6",
+            "to": "1.1 x 0.6"
+          },
+          "C2": {
+            "from": "1.1 x 0.6",
+            "to": "1.6 x 0.6"
+          },
+          "D1": {
+            "from": "0.6 x 0.6",
+            "to": "0.9 x 0.6"
+          },
+          "D2": {
+            "from": "0.8 x 0.7",
+            "to": "1.1 x 0.7"
+          },
+          "E1": {
+            "from": "0.8 x 0.7",
+            "to": "1.4 x 0.7"
+          },
+          "M2": {
+            "from": "1.2 x 1.0",
+            "to": "2.3 x 1.0"
+          },
+          "M3": {
+            "from": "1.5 x 1.0",
+            "to": "2.5 x 1.0"
+          },
+          "M4": {
+            "from": "1.9 x 1.2",
+            "to": "3.0 x 1.3"
+          }
+        },
+        "n_changed": 11,
+        "drain_volume_increase_pct": 67.1,
+        "final_flood_volume_m3": 0.0,
+        "final_max_over_full_depth": 0.85,
+        "final_routing_continuity_error_pct": 0.002,
+        "final_runoff_continuity_error_pct": -0.029,
+        "final_max_velocity_ms": 3.13
+      }
+    }
+  },
+  "first_failure_uplift_pct": {
+    "M1": 3,
+    "B1": 6,
+    "B2": 9,
+    "C1": 13,
+    "C2": 4,
+    "D1": 17,
+    "D2": 10,
+    "E1": 1,
+    "M2": 1,
+    "M3": 2,
+    "M4": 1
+  },
+  "min_first_failure_uplift_pct": 1,
+  "max_first_failure_uplift_pct": 17,
+  "n_reaches_never_fail_in_sweep": 0,
+  "n_failing_at_v3_high": 11
+}

@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+# SWMM run artefacts (runs happen in a temp dir; never commit these)
+*.rpt
+*.out
+# The COP PDF is PUB's document - reference it, never commit it
+*.pdf
+# local QA overlays reproduce the COP chart - keep them out of git
+qa_*.png
+mutation/_work/
