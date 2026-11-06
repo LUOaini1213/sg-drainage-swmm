@@ -1,15 +1,12 @@
 {
-  "baseline_passed": 55,
-  "baseline_seconds": 9.8,
+  "baseline_passed": 57,
+  "baseline_seconds": 18.9,
   "n_mutants": 20,
   "n_valid": 20,
   "all_compile": true,
-  "n_killed": 18,
-  "n_survived": 2,
-  "survivors": [
-    "M13 (minimum self-cleansing velocity not checked)",
-    "M15 (drain may start above the inverts flowing into it)"
-  ],
+  "n_killed": 20,
+  "n_survived": 0,
+  "survivors": [],
   "invalid": [],
   "mutants": [
     {
@@ -22,7 +19,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_hydraulics.py::test_manning_hand_calculation",
-      "seconds": 9.7
+      "seconds": 13.1
     },
     {
       "id": "M02",
@@ -34,7 +31,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_hydraulics.py::test_manning_hand_calculation",
-      "seconds": 9.3
+      "seconds": 12.4
     },
     {
       "id": "M03",
@@ -46,7 +43,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_cop.py::test_cop_constants_match_the_code",
-      "seconds": 10.1
+      "seconds": 12.3
     },
     {
       "id": "M04",
@@ -58,7 +55,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_cop.py::test_cop_constants_match_the_code",
-      "seconds": 9.3
+      "seconds": 13.5
     },
     {
       "id": "M05",
@@ -70,7 +67,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_cop.py::test_cop_constants_match_the_code",
-      "seconds": 12.7
+      "seconds": 10.3
     },
     {
       "id": "M06",
@@ -82,7 +79,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_cop.py::test_return_period_rule",
-      "seconds": 10.7
+      "seconds": 10.6
     },
     {
       "id": "M07",
@@ -94,7 +91,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_cop.py::test_weighted_c",
-      "seconds": 13.5
+      "seconds": 10.5
     },
     {
       "id": "M08",
@@ -106,7 +103,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_rational.py::test_tc_iteration_converged",
-      "seconds": 16.9
+      "seconds": 15.5
     },
     {
       "id": "M09",
@@ -118,7 +115,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_rational.py::test_tc_iteration_converged",
-      "seconds": 13.4
+      "seconds": 14.3
     },
     {
       "id": "M10",
@@ -130,7 +127,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_rational.py::test_contributing_area_and_ca_accumulate",
-      "seconds": 12.4
+      "seconds": 14.7
     },
     {
       "id": "M11",
@@ -142,7 +139,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_rational.py::test_tc_iteration_converged",
-      "seconds": 9.5
+      "seconds": 12.4
     },
     {
       "id": "M12",
@@ -154,7 +151,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_rational.py::test_chosen_section_is_smallest_compliant",
-      "seconds": 9.9
+      "seconds": 12.2
     },
     {
       "id": "M13",
@@ -163,10 +160,10 @@
       "original": "vmin_ok=v >= cop.V_MIN - 1e-12,",
       "mutated": "vmin_ok=True,",
       "compiles": true,
-      "status": "survived",
-      "pytest_exit_code": 0,
-      "first_failing_test": null,
-      "seconds": 13.5
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_rational.py::test_check_section_flags_each_criterion_independently",
+      "seconds": 7.7
     },
     {
       "id": "M14",
@@ -178,7 +175,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_stress.py::test_upsizing_never_shrinks_and_restores_compliance[cc_v3_low]",
-      "seconds": 13.9
+      "seconds": 8.3
     },
     {
       "id": "M15",
@@ -187,10 +184,10 @@
       "original": "            inv_up = min(inv_up, out[u.id][\"inv_dn\"])",
       "mutated": "            pass",
       "compiles": true,
-      "status": "survived",
-      "pytest_exit_code": 0,
-      "first_failing_test": null,
-      "seconds": 11.9
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_rational.py::test_levels_no_upward_step_when_binding",
+      "seconds": 8.0
     },
     {
       "id": "M16",
@@ -202,7 +199,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_idf_hyetograph.py::test_interpolation_exact_at_nodes_and_loglog_between",
-      "seconds": 10.7
+      "seconds": 5.4
     },
     {
       "id": "M17",
@@ -214,7 +211,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_idf_hyetograph.py::test_uplift_is_multiplicative_and_range_checked",
-      "seconds": 9.8
+      "seconds": 6.3
     },
     {
       "id": "M18",
@@ -226,7 +223,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_idf_hyetograph.py::test_alternating_block_properties[10-120-5]",
-      "seconds": 11.3
+      "seconds": 14.5
     },
     {
       "id": "M19",
@@ -238,7 +235,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_idf_hyetograph.py::test_alternating_block_properties[10-120-5]",
-      "seconds": 9.6
+      "seconds": 28.3
     },
     {
       "id": "M20",
@@ -250,7 +247,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_swmm.py::test_inp_reflects_the_design",
-      "seconds": 11.4
+      "seconds": 46.4
     }
   ],
   "history": [
@@ -263,7 +260,14 @@
         "M13 (minimum self-cleansing velocity not checked)",
         "M15 (drain may start above the inverts flowing into it)"
       ]
+    },
+    {
+      "round": 2,
+      "baseline_passed": 57,
+      "n_mutants": 20,
+      "n_killed": 20,
+      "survivors": []
     }
   ],
-  "round": 1
+  "round": 2
 }
