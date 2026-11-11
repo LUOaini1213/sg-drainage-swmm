@@ -1,0 +1,909 @@
+{
+  "n_tide_runs": 177,
+  "critical_tailwater": [
+    {
+      "storm": "design_10yr",
+      "sizes": "design",
+      "outfall_section": "1.9 x 1.2",
+      "outfall_invert_shd": 2.8,
+      "tw_crit_local": 8.42,
+      "tw_crit_shd": 3.82,
+      "slr_headroom_m": 2.36
+    },
+    {
+      "storm": "cc_v3_low",
+      "sizes": "design",
+      "outfall_section": "1.9 x 1.2",
+      "outfall_invert_shd": 2.8,
+      "tw_crit_local": null,
+      "tw_crit_shd": null,
+      "slr_headroom_m": null
+    },
+    {
+      "storm": "cc_v3_low",
+      "sizes": "rational upsizing",
+      "outfall_section": "2.0 x 1.2",
+      "outfall_invert_shd": 2.8,
+      "tw_crit_local": 8.42,
+      "tw_crit_shd": 3.82,
+      "slr_headroom_m": 2.36
+    },
+    {
+      "storm": "cc_v3_high",
+      "sizes": "design",
+      "outfall_section": "1.9 x 1.2",
+      "outfall_invert_shd": 2.8,
+      "tw_crit_local": null,
+      "tw_crit_shd": null,
+      "slr_headroom_m": null
+    },
+    {
+      "storm": "cc_v3_high",
+      "sizes": "rational upsizing",
+      "outfall_section": "2.2 x 1.7",
+      "outfall_invert_shd": 2.3,
+      "tw_crit_local": 8.345,
+      "tw_crit_shd": 3.745,
+      "slr_headroom_m": 2.29
+    },
+    {
+      "storm": "t100",
+      "sizes": "design",
+      "outfall_section": "1.9 x 1.2",
+      "outfall_invert_shd": 2.8,
+      "tw_crit_local": null,
+      "tw_crit_shd": null,
+      "slr_headroom_m": null
+    },
+    {
+      "storm": "t100",
+      "sizes": "rational upsizing",
+      "outfall_section": "2.1 x 1.4",
+      "outfall_invert_shd": 2.6,
+      "tw_crit_local": 8.39,
+      "tw_crit_shd": 3.79,
+      "slr_headroom_m": 2.33
+    }
+  ],
+  "critical_tailwater_by_tag": {
+    "design_10yr_design": {
+      "storm": "design_10yr",
+      "sizes": "design",
+      "outfall_section": "1.9 x 1.2",
+      "outfall_invert_shd": 2.8,
+      "tw_crit_local": 8.42,
+      "tw_crit_shd": 3.82,
+      "slr_headroom_m": 2.36
+    },
+    "cc_v3_low_design": {
+      "storm": "cc_v3_low",
+      "sizes": "design",
+      "outfall_section": "1.9 x 1.2",
+      "outfall_invert_shd": 2.8,
+      "tw_crit_local": null,
+      "tw_crit_shd": null,
+      "slr_headroom_m": null
+    },
+    "cc_v3_low_upsized": {
+      "storm": "cc_v3_low",
+      "sizes": "rational upsizing",
+      "outfall_section": "2.0 x 1.2",
+      "outfall_invert_shd": 2.8,
+      "tw_crit_local": 8.42,
+      "tw_crit_shd": 3.82,
+      "slr_headroom_m": 2.36
+    },
+    "cc_v3_high_design": {
+      "storm": "cc_v3_high",
+      "sizes": "design",
+      "outfall_section": "1.9 x 1.2",
+      "outfall_invert_shd": 2.8,
+      "tw_crit_local": null,
+      "tw_crit_shd": null,
+      "slr_headroom_m": null
+    },
+    "cc_v3_high_upsized": {
+      "storm": "cc_v3_high",
+      "sizes": "rational upsizing",
+      "outfall_section": "2.2 x 1.7",
+      "outfall_invert_shd": 2.3,
+      "tw_crit_local": 8.345,
+      "tw_crit_shd": 3.745,
+      "slr_headroom_m": 2.29
+    },
+    "t100_design": {
+      "storm": "t100",
+      "sizes": "design",
+      "outfall_section": "1.9 x 1.2",
+      "outfall_invert_shd": 2.8,
+      "tw_crit_local": null,
+      "tw_crit_shd": null,
+      "slr_headroom_m": null
+    },
+    "t100_upsized": {
+      "storm": "t100",
+      "sizes": "rational upsizing",
+      "outfall_section": "2.1 x 1.4",
+      "outfall_invert_shd": 2.6,
+      "tw_crit_local": 8.39,
+      "tw_crit_shd": 3.79,
+      "slr_headroom_m": 2.33
+    }
+  },
+  "base_n_runs": 56,
+  "base_largest_d_flood": {
+    "storm": "cc_v3_high",
+    "storm_label": "10-yr storm +92% (high end of V3 range, bounding)",
+    "sizes": "rational upsizing",
+    "slr_id": "cpcop_2p15",
+    "gated": false,
+    "d_flood_m3": 4.0,
+    "max_head_rise_m": 0.002
+  },
+  "base_n_sea_above_ground": 0,
+  "base_max_gvf_extent_m": 0.0,
+  "base_max_swmm_extent_m": 0.0,
+  "base_max_head_rise_m": 0.002,
+  "design_tw_crit_local": 8.42,
+  "design_tw_crit_shd": 3.82,
+  "design_tw_crit_below_ground_m": 0.18,
+  "design_slr_headroom_m": 2.36,
+  "min_outfall_ground": [
+    {
+      "slr_id": "present",
+      "slr_m": 0.0,
+      "hw_shd": 1.458,
+      "min_outfall_ground_shd_cop_freeboard": 1.64,
+      "min_outfall_ground_shd_swmm_no_rise": 1.66,
+      "margin_at_cop_platform_level_m": 2.36
+    },
+    {
+      "slr_id": "cpcop_0p7",
+      "slr_m": 0.7,
+      "hw_shd": 2.158,
+      "min_outfall_ground_shd_cop_freeboard": 2.34,
+      "min_outfall_ground_shd_swmm_no_rise": 2.36,
+      "margin_at_cop_platform_level_m": 1.66
+    },
+    {
+      "slr_id": "v3_ssp585_2100_high",
+      "slr_m": 1.15,
+      "hw_shd": 2.608,
+      "min_outfall_ground_shd_cop_freeboard": 2.79,
+      "min_outfall_ground_shd_swmm_no_rise": 2.81,
+      "margin_at_cop_platform_level_m": 1.21
+    },
+    {
+      "slr_id": "cpcop_2p15",
+      "slr_m": 2.15,
+      "hw_shd": 3.608,
+      "min_outfall_ground_shd_cop_freeboard": 3.79,
+      "min_outfall_ground_shd_swmm_no_rise": 3.81,
+      "margin_at_cop_platform_level_m": 0.21
+    }
+  ],
+  "sweep_first_swmm_rise_hw_minus_ground_m": -0.15,
+  "sweep_last_no_swmm_rise_hw_minus_ground_m": -0.2,
+  "sweep_step_near_ground_m": 0.05,
+  "sweep_first_gvf_rise_hw_minus_ground_m": -0.15,
+  "sweep_at_ground": {
+    "hw_minus_outfall_ground_m": 0.0,
+    "hw_local": 8.6,
+    "hw_shd_at_base_datum": 4.0,
+    "gvf_n_fail_due_to_tide": 4,
+    "gvf_fail_due_to_tide": [
+      "D2",
+      "E1",
+      "M3",
+      "M4"
+    ],
+    "gvf_raised_reaches": [
+      "D2",
+      "E1",
+      "M3",
+      "M4"
+    ],
+    "gvf_extent_main_m": 164.0,
+    "gvf_max_rise_m": 0.1869,
+    "upsize_status": "infeasible",
+    "upsize_infeasible": [
+      "D2",
+      "E1",
+      "M3",
+      "M4"
+    ],
+    "upsize_changed": [],
+    "d_flood_m3_open": 130.0,
+    "max_head_rise_m_open": 0.065,
+    "swmm_extent_m_open": 60.0,
+    "raised_nodes_open": [
+      "J4"
+    ],
+    "d_flood_m3_gated": 130.0,
+    "max_head_rise_m_gated": 0.065,
+    "swmm_extent_m_gated": 60.0,
+    "raised_nodes_gated": [
+      "J4"
+    ]
+  },
+  "sweep_max_open_gated_diff_m3": 0.0,
+  "base_design": {
+    "present": {
+      "open": {
+        "storm": "design_10yr",
+        "storm_label": "10-yr design storm",
+        "sizes": "design",
+        "slr_id": "present",
+        "slr_m": 0.0,
+        "outfall_ground_shd": 4.0,
+        "peak_sea_level_local": 6.058,
+        "peak_sea_level_shd": 1.458,
+        "peak_above_outfall_invert_m": -1.342,
+        "peak_below_outfall_ground_m": 2.542,
+        "reaches_below_high_water": [],
+        "gated": false,
+        "gvf_fail_due_to_tide": [],
+        "gvf_fail_free": [],
+        "gvf_overtops": [],
+        "gvf_extent_main_m": 0.0,
+        "gvf_raised_reaches": [],
+        "gvf_max_rise_m": 0.0,
+        "outfall_y_over_d": 0.844,
+        "status": "run",
+        "flood_m3": 230.0,
+        "d_flood_m3": 0.0,
+        "flooded_nodes": [
+          "B1",
+          "C2",
+          "E1",
+          "J1",
+          "J2",
+          "J3"
+        ],
+        "new_flooded_nodes": [],
+        "new_into_freeboard": [],
+        "max_head_rise_m": 0.0,
+        "raised_nodes": [],
+        "swmm_extent_node": null,
+        "swmm_extent_m": 0.0,
+        "runoff_continuity_pct": -0.027,
+        "routing_continuity_pct": -0.127
+      },
+      "gated": {
+        "storm": "design_10yr",
+        "storm_label": "10-yr design storm",
+        "sizes": "design",
+        "slr_id": "present",
+        "slr_m": 0.0,
+        "outfall_ground_shd": 4.0,
+        "peak_sea_level_local": 6.058,
+        "peak_sea_level_shd": 1.458,
+        "peak_above_outfall_invert_m": -1.342,
+        "peak_below_outfall_ground_m": 2.542,
+        "reaches_below_high_water": [],
+        "gated": true,
+        "gvf_fail_due_to_tide": [],
+        "gvf_fail_free": [],
+        "gvf_overtops": [],
+        "gvf_extent_main_m": 0.0,
+        "gvf_raised_reaches": [],
+        "gvf_max_rise_m": 0.0,
+        "outfall_y_over_d": 0.844,
+        "status": "run",
+        "flood_m3": 230.0,
+        "d_flood_m3": 0.0,
+        "flooded_nodes": [
+          "B1",
+          "C2",
+          "E1",
+          "J1",
+          "J2",
+          "J3"
+        ],
+        "new_flooded_nodes": [],
+        "new_into_freeboard": [],
+        "max_head_rise_m": 0.0,
+        "raised_nodes": [],
+        "swmm_extent_node": null,
+        "swmm_extent_m": 0.0,
+        "runoff_continuity_pct": -0.027,
+        "routing_continuity_pct": -0.127
+      }
+    },
+    "cpcop_0p7": {
+      "open": {
+        "storm": "design_10yr",
+        "storm_label": "10-yr design storm",
+        "sizes": "design",
+        "slr_id": "cpcop_0p7",
+        "slr_m": 0.7,
+        "outfall_ground_shd": 4.0,
+        "peak_sea_level_local": 6.758,
+        "peak_sea_level_shd": 2.158,
+        "peak_above_outfall_invert_m": -0.642,
+        "peak_below_outfall_ground_m": 1.842,
+        "reaches_below_high_water": [],
+        "gated": false,
+        "gvf_fail_due_to_tide": [],
+        "gvf_fail_free": [],
+        "gvf_overtops": [],
+        "gvf_extent_main_m": 0.0,
+        "gvf_raised_reaches": [],
+        "gvf_max_rise_m": 0.0,
+        "outfall_y_over_d": 0.844,
+        "status": "run",
+        "flood_m3": 230.0,
+        "d_flood_m3": 0.0,
+        "flooded_nodes": [
+          "B1",
+          "C2",
+          "E1",
+          "J1",
+          "J2",
+          "J3"
+        ],
+        "new_flooded_nodes": [],
+        "new_into_freeboard": [],
+        "max_head_rise_m": 0.0,
+        "raised_nodes": [],
+        "swmm_extent_node": null,
+        "swmm_extent_m": 0.0,
+        "runoff_continuity_pct": -0.027,
+        "routing_continuity_pct": -0.127
+      },
+      "gated": {
+        "storm": "design_10yr",
+        "storm_label": "10-yr design storm",
+        "sizes": "design",
+        "slr_id": "cpcop_0p7",
+        "slr_m": 0.7,
+        "outfall_ground_shd": 4.0,
+        "peak_sea_level_local": 6.758,
+        "peak_sea_level_shd": 2.158,
+        "peak_above_outfall_invert_m": -0.642,
+        "peak_below_outfall_ground_m": 1.842,
+        "reaches_below_high_water": [],
+        "gated": true,
+        "gvf_fail_due_to_tide": [],
+        "gvf_fail_free": [],
+        "gvf_overtops": [],
+        "gvf_extent_main_m": 0.0,
+        "gvf_raised_reaches": [],
+        "gvf_max_rise_m": 0.0,
+        "outfall_y_over_d": 0.844,
+        "status": "run",
+        "flood_m3": 230.0,
+        "d_flood_m3": 0.0,
+        "flooded_nodes": [
+          "B1",
+          "C2",
+          "E1",
+          "J1",
+          "J2",
+          "J3"
+        ],
+        "new_flooded_nodes": [],
+        "new_into_freeboard": [],
+        "max_head_rise_m": 0.0,
+        "raised_nodes": [],
+        "swmm_extent_node": null,
+        "swmm_extent_m": 0.0,
+        "runoff_continuity_pct": -0.027,
+        "routing_continuity_pct": -0.127
+      }
+    },
+    "v3_ssp585_2100_high": {
+      "open": {
+        "storm": "design_10yr",
+        "storm_label": "10-yr design storm",
+        "sizes": "design",
+        "slr_id": "v3_ssp585_2100_high",
+        "slr_m": 1.15,
+        "outfall_ground_shd": 4.0,
+        "peak_sea_level_local": 7.208,
+        "peak_sea_level_shd": 2.608,
+        "peak_above_outfall_invert_m": -0.192,
+        "peak_below_outfall_ground_m": 1.392,
+        "reaches_below_high_water": [],
+        "gated": false,
+        "gvf_fail_due_to_tide": [],
+        "gvf_fail_free": [],
+        "gvf_overtops": [],
+        "gvf_extent_main_m": 0.0,
+        "gvf_raised_reaches": [],
+        "gvf_max_rise_m": 0.0,
+        "outfall_y_over_d": 0.844,
+        "status": "run",
+        "flood_m3": 230.0,
+        "d_flood_m3": 0.0,
+        "flooded_nodes": [
+          "B1",
+          "C2",
+          "E1",
+          "J1",
+          "J2",
+          "J3"
+        ],
+        "new_flooded_nodes": [],
+        "new_into_freeboard": [],
+        "max_head_rise_m": 0.0,
+        "raised_nodes": [],
+        "swmm_extent_node": null,
+        "swmm_extent_m": 0.0,
+        "runoff_continuity_pct": -0.027,
+        "routing_continuity_pct": -0.127
+      },
+      "gated": {
+        "storm": "design_10yr",
+        "storm_label": "10-yr design storm",
+        "sizes": "design",
+        "slr_id": "v3_ssp585_2100_high",
+        "slr_m": 1.15,
+        "outfall_ground_shd": 4.0,
+        "peak_sea_level_local": 7.208,
+        "peak_sea_level_shd": 2.608,
+        "peak_above_outfall_invert_m": -0.192,
+        "peak_below_outfall_ground_m": 1.392,
+        "reaches_below_high_water": [],
+        "gated": true,
+        "gvf_fail_due_to_tide": [],
+        "gvf_fail_free": [],
+        "gvf_overtops": [],
+        "gvf_extent_main_m": 0.0,
+        "gvf_raised_reaches": [],
+        "gvf_max_rise_m": 0.0,
+        "outfall_y_over_d": 0.844,
+        "status": "run",
+        "flood_m3": 230.0,
+        "d_flood_m3": 0.0,
+        "flooded_nodes": [
+          "B1",
+          "C2",
+          "E1",
+          "J1",
+          "J2",
+          "J3"
+        ],
+        "new_flooded_nodes": [],
+        "new_into_freeboard": [],
+        "max_head_rise_m": 0.0,
+        "raised_nodes": [],
+        "swmm_extent_node": null,
+        "swmm_extent_m": 0.0,
+        "runoff_continuity_pct": -0.027,
+        "routing_continuity_pct": -0.127
+      }
+    },
+    "cpcop_2p15": {
+      "open": {
+        "storm": "design_10yr",
+        "storm_label": "10-yr design storm",
+        "sizes": "design",
+        "slr_id": "cpcop_2p15",
+        "slr_m": 2.15,
+        "outfall_ground_shd": 4.0,
+        "peak_sea_level_local": 8.208,
+        "peak_sea_level_shd": 3.608,
+        "peak_above_outfall_invert_m": 0.808,
+        "peak_below_outfall_ground_m": 0.392,
+        "reaches_below_high_water": [
+          "D2",
+          "E1",
+          "M2",
+          "M3",
+          "M4"
+        ],
+        "gated": false,
+        "gvf_fail_due_to_tide": [],
+        "gvf_fail_free": [],
+        "gvf_overtops": [],
+        "gvf_extent_main_m": 0.0,
+        "gvf_raised_reaches": [],
+        "gvf_max_rise_m": 0.0,
+        "outfall_y_over_d": 0.844,
+        "status": "run",
+        "flood_m3": 230.0,
+        "d_flood_m3": 0.0,
+        "flooded_nodes": [
+          "B1",
+          "C2",
+          "E1",
+          "J1",
+          "J2",
+          "J3"
+        ],
+        "new_flooded_nodes": [],
+        "new_into_freeboard": [],
+        "max_head_rise_m": 0.0,
+        "raised_nodes": [],
+        "swmm_extent_node": null,
+        "swmm_extent_m": 0.0,
+        "runoff_continuity_pct": -0.027,
+        "routing_continuity_pct": 0.161
+      },
+      "gated": {
+        "storm": "design_10yr",
+        "storm_label": "10-yr design storm",
+        "sizes": "design",
+        "slr_id": "cpcop_2p15",
+        "slr_m": 2.15,
+        "outfall_ground_shd": 4.0,
+        "peak_sea_level_local": 8.208,
+        "peak_sea_level_shd": 3.608,
+        "peak_above_outfall_invert_m": 0.808,
+        "peak_below_outfall_ground_m": 0.392,
+        "reaches_below_high_water": [
+          "D2",
+          "E1",
+          "M2",
+          "M3",
+          "M4"
+        ],
+        "gated": true,
+        "gvf_fail_due_to_tide": [],
+        "gvf_fail_free": [],
+        "gvf_overtops": [],
+        "gvf_extent_main_m": 0.0,
+        "gvf_raised_reaches": [],
+        "gvf_max_rise_m": 0.0,
+        "outfall_y_over_d": 0.844,
+        "status": "run",
+        "flood_m3": 230.0,
+        "d_flood_m3": 0.0,
+        "flooded_nodes": [
+          "B1",
+          "C2",
+          "E1",
+          "J1",
+          "J2",
+          "J3"
+        ],
+        "new_flooded_nodes": [],
+        "new_into_freeboard": [],
+        "max_head_rise_m": 0.0,
+        "raised_nodes": [],
+        "swmm_extent_node": null,
+        "swmm_extent_m": 0.0,
+        "runoff_continuity_pct": -0.027,
+        "routing_continuity_pct": 0.17
+      }
+    }
+  },
+  "upsizing_under_tailwater": [
+    {
+      "hw_minus_outfall_ground_m": -0.15,
+      "hw_shd_at_base_datum": 3.85,
+      "fail_due_to_tide": [
+        "M4"
+      ],
+      "status": "infeasible",
+      "infeasible_reaches": [
+        "M4"
+      ],
+      "changed": []
+    },
+    {
+      "hw_minus_outfall_ground_m": -0.1,
+      "hw_shd_at_base_datum": 3.9,
+      "fail_due_to_tide": [
+        "M4"
+      ],
+      "status": "infeasible",
+      "infeasible_reaches": [
+        "M4"
+      ],
+      "changed": []
+    },
+    {
+      "hw_minus_outfall_ground_m": -0.05,
+      "hw_shd_at_base_datum": 3.95,
+      "fail_due_to_tide": [
+        "M3",
+        "M4"
+      ],
+      "status": "infeasible",
+      "infeasible_reaches": [
+        "M3",
+        "M4"
+      ],
+      "changed": []
+    },
+    {
+      "hw_minus_outfall_ground_m": 0.0,
+      "hw_shd_at_base_datum": 4.0,
+      "fail_due_to_tide": [
+        "D2",
+        "E1",
+        "M3",
+        "M4"
+      ],
+      "status": "infeasible",
+      "infeasible_reaches": [
+        "D2",
+        "E1",
+        "M3",
+        "M4"
+      ],
+      "changed": []
+    }
+  ],
+  "pump": {
+    "cop_cl_10_1_reference_m3s": 5.25,
+    "rational_outfall_q_m3s": 4.606,
+    "storms": {
+      "design_10yr_design": {
+        "peak_inflow_m3s": 6.251,
+        "event_volume_m3": 13390.8,
+        "trade_off": [
+          {
+            "pump_fraction_of_peak": 1.0,
+            "pump_m3s": 6.251,
+            "storage_m3": 0.0
+          },
+          {
+            "pump_fraction_of_peak": 0.9,
+            "pump_m3s": 5.626,
+            "storage_m3": 167.9
+          },
+          {
+            "pump_fraction_of_peak": 0.75,
+            "pump_m3s": 4.688,
+            "storage_m3": 755.7
+          },
+          {
+            "pump_fraction_of_peak": 0.6,
+            "pump_m3s": 3.75,
+            "storage_m3": 1621.7
+          },
+          {
+            "pump_fraction_of_peak": 0.5,
+            "pump_m3s": 3.125,
+            "storage_m3": 2415.4
+          }
+        ],
+        "verification": {
+          "sea_level_local": 8.6,
+          "pump_m3s": 4.688,
+          "storage_m3": 755.7,
+          "sump_area_m2": 731.5,
+          "sump_depth_m": 1.033,
+          "free_flood_m3": 230.0,
+          "gate_shut_no_pump": {
+            "flood_m3": 361.0,
+            "d_flood_m3": 131.0,
+            "flooded_nodes": [
+              "B1",
+              "C2",
+              "E1",
+              "J1",
+              "J2",
+              "J3",
+              "J4"
+            ],
+            "new_flooded_nodes": [
+              "J4"
+            ],
+            "new_into_freeboard": [],
+            "max_head_rise_m": 0.065,
+            "raised_nodes": [
+              "J4"
+            ],
+            "swmm_extent_node": "J4",
+            "swmm_extent_m": 60.0,
+            "runoff_continuity_pct": -0.027,
+            "routing_continuity_pct": 0.035
+          },
+          "gate_shut_pumped": {
+            "flood_m3": 225.0,
+            "d_flood_m3": -5.0,
+            "flooded_nodes": [
+              "B1",
+              "C2",
+              "E1",
+              "J1",
+              "J2",
+              "J3"
+            ],
+            "new_flooded_nodes": [],
+            "new_into_freeboard": [],
+            "max_head_rise_m": 0.002,
+            "raised_nodes": [],
+            "swmm_extent_node": null,
+            "swmm_extent_m": 0.0,
+            "runoff_continuity_pct": -0.027,
+            "routing_continuity_pct": 0.03
+          },
+          "pumped_max_pump_flow_m3s": 4.688,
+          "pumped_max_gate_flow_m3s": 0.0,
+          "pumped_max_sump_level_local": 8.38
+        }
+      },
+      "cc_v3_low_design": {
+        "peak_inflow_m3s": 6.339,
+        "event_volume_m3": 14095.0,
+        "trade_off": [
+          {
+            "pump_fraction_of_peak": 1.0,
+            "pump_m3s": 6.339,
+            "storage_m3": 0.0
+          },
+          {
+            "pump_fraction_of_peak": 0.9,
+            "pump_m3s": 5.705,
+            "storage_m3": 197.9
+          },
+          {
+            "pump_fraction_of_peak": 0.75,
+            "pump_m3s": 4.755,
+            "storage_m3": 831.7
+          },
+          {
+            "pump_fraction_of_peak": 0.6,
+            "pump_m3s": 3.804,
+            "storage_m3": 1792.6
+          },
+          {
+            "pump_fraction_of_peak": 0.5,
+            "pump_m3s": 3.17,
+            "storage_m3": 2646.0
+          }
+        ]
+      },
+      "cc_v3_low_upsized": {
+        "peak_inflow_m3s": 6.784,
+        "event_volume_m3": 14331.1,
+        "trade_off": [
+          {
+            "pump_fraction_of_peak": 1.0,
+            "pump_m3s": 6.784,
+            "storage_m3": 0.0
+          },
+          {
+            "pump_fraction_of_peak": 0.9,
+            "pump_m3s": 6.106,
+            "storage_m3": 200.6
+          },
+          {
+            "pump_fraction_of_peak": 0.75,
+            "pump_m3s": 5.088,
+            "storage_m3": 822.2
+          },
+          {
+            "pump_fraction_of_peak": 0.6,
+            "pump_m3s": 4.07,
+            "storage_m3": 1723.4
+          },
+          {
+            "pump_fraction_of_peak": 0.5,
+            "pump_m3s": 3.392,
+            "storage_m3": 2559.0
+          }
+        ]
+      },
+      "cc_v3_high_design": {
+        "peak_inflow_m3s": 6.794,
+        "event_volume_m3": 22099.6,
+        "trade_off": [
+          {
+            "pump_fraction_of_peak": 1.0,
+            "pump_m3s": 6.794,
+            "storage_m3": 0.0
+          },
+          {
+            "pump_fraction_of_peak": 0.9,
+            "pump_m3s": 6.115,
+            "storage_m3": 540.2
+          },
+          {
+            "pump_fraction_of_peak": 0.75,
+            "pump_m3s": 5.096,
+            "storage_m3": 2087.7
+          },
+          {
+            "pump_fraction_of_peak": 0.6,
+            "pump_m3s": 4.077,
+            "storage_m3": 4098.7
+          },
+          {
+            "pump_fraction_of_peak": 0.5,
+            "pump_m3s": 3.397,
+            "storage_m3": 5762.9
+          }
+        ]
+      },
+      "cc_v3_high_upsized": {
+        "peak_inflow_m3s": 12.336,
+        "event_volume_m3": 26334.0,
+        "trade_off": [
+          {
+            "pump_fraction_of_peak": 1.0,
+            "pump_m3s": 12.336,
+            "storage_m3": 0.0
+          },
+          {
+            "pump_fraction_of_peak": 0.9,
+            "pump_m3s": 11.103,
+            "storage_m3": 315.6
+          },
+          {
+            "pump_fraction_of_peak": 0.75,
+            "pump_m3s": 9.252,
+            "storage_m3": 1427.2
+          },
+          {
+            "pump_fraction_of_peak": 0.6,
+            "pump_m3s": 7.402,
+            "storage_m3": 3071.1
+          },
+          {
+            "pump_fraction_of_peak": 0.5,
+            "pump_m3s": 6.168,
+            "storage_m3": 4605.9
+          }
+        ]
+      },
+      "t100_design": {
+        "peak_inflow_m3s": 6.637,
+        "event_volume_m3": 17684.2,
+        "trade_off": [
+          {
+            "pump_fraction_of_peak": 1.0,
+            "pump_m3s": 6.637,
+            "storage_m3": 0.0
+          },
+          {
+            "pump_fraction_of_peak": 0.9,
+            "pump_m3s": 5.973,
+            "storage_m3": 315.1
+          },
+          {
+            "pump_fraction_of_peak": 0.75,
+            "pump_m3s": 4.978,
+            "storage_m3": 1328.6
+          },
+          {
+            "pump_fraction_of_peak": 0.6,
+            "pump_m3s": 3.982,
+            "storage_m3": 2728.0
+          },
+          {
+            "pump_fraction_of_peak": 0.5,
+            "pump_m3s": 3.318,
+            "storage_m3": 3897.0
+          }
+        ]
+      },
+      "t100_upsized": {
+        "peak_inflow_m3s": 8.752,
+        "event_volume_m3": 18962.2,
+        "trade_off": [
+          {
+            "pump_fraction_of_peak": 1.0,
+            "pump_m3s": 8.752,
+            "storage_m3": 0.0
+          },
+          {
+            "pump_fraction_of_peak": 0.9,
+            "pump_m3s": 7.876,
+            "storage_m3": 250.9
+          },
+          {
+            "pump_fraction_of_peak": 0.75,
+            "pump_m3s": 6.564,
+            "storage_m3": 1068.8
+          },
+          {
+            "pump_fraction_of_peak": 0.6,
+            "pump_m3s": 5.251,
+            "storage_m3": 2294.3
+          },
+          {
+            "pump_fraction_of_peak": 0.5,
+            "pump_m3s": 4.376,
+            "storage_m3": 3412.8
+          }
+        ]
+      }
+    }
+  }
+}

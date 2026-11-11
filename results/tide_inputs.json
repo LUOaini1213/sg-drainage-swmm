@@ -1,0 +1,202 @@
+{
+  "tide": {
+    "n_extremes": 236,
+    "n_high": 118,
+    "n_low": 118,
+    "first": "2026-11-01T04:18",
+    "last": "2026-12-31T23:01",
+    "highest_hw_cd": 3.4,
+    "highest_hw_time": "2026-12-26T12:01",
+    "n_highest_hw": 2,
+    "mean_hw_cd": 2.8068,
+    "mean_lw_cd": 1.1356,
+    "lowest_lw_cd": 0.1,
+    "mean_level_cd": 1.9418,
+    "peak_minute_in_storm": 57.5,
+    "hw_used_cd": 3.4,
+    "hw_used_time": "2026-12-26T12:01",
+    "hw_used_time_text": "2026-12-26 12:01",
+    "hw_above_mean_m": 1.458,
+    "mean_hw_above_mean_m": 0.865,
+    "tide_step_min": 5,
+    "sim_min": 240
+  },
+  "coastal": {
+    "min_platform_level_shd": {
+      "southern_coast": 4.0,
+      "northern_coast": 4.5
+    },
+    "min_reclamation_level_shd": {
+      "southern_coast": 4.0,
+      "northern_coast": 4.5
+    },
+    "cpcop_rmslr_planning_scenarios_m": [
+      0.7,
+      2.15
+    ],
+    "v3_baseline": "1995-2014",
+    "v3_table_5_10": {
+      "Sultan Shoal": {
+        "SSP1-2.6 2100": [
+          0.51,
+          0.34,
+          0.74
+        ],
+        "SSP1-2.6 2150": [
+          0.82,
+          0.5,
+          1.24
+        ],
+        "SSP2-4.5 2100": [
+          0.63,
+          0.46,
+          0.88
+        ],
+        "SSP2-4.5 2150": [
+          1.05,
+          0.72,
+          1.52
+        ],
+        "SSP5-8.5 2100": [
+          0.85,
+          0.66,
+          1.15
+        ],
+        "SSP5-8.5 2150": [
+          1.47,
+          1.03,
+          2.12
+        ]
+      },
+      "Tanjong Pagar": {
+        "SSP1-2.6 2100": [
+          0.44,
+          0.24,
+          0.69
+        ],
+        "SSP1-2.6 2150": [
+          0.71,
+          0.35,
+          1.16
+        ],
+        "SSP2-4.5 2100": [
+          0.56,
+          0.36,
+          0.82
+        ],
+        "SSP2-4.5 2150": [
+          0.94,
+          0.56,
+          1.43
+        ],
+        "SSP5-8.5 2100": [
+          0.78,
+          0.56,
+          1.1
+        ],
+        "SSP5-8.5 2150": [
+          1.36,
+          0.89,
+          2.02
+        ]
+      }
+    },
+    "v3_singapore_average": {
+      "SSP1-2.6 2100": [
+        0.45,
+        0.03
+      ],
+      "SSP1-2.6 2150": [
+        0.72,
+        0.05
+      ],
+      "SSP2-4.5 2100": [
+        0.57,
+        0.04
+      ],
+      "SSP2-4.5 2150": [
+        0.95,
+        0.06
+      ],
+      "SSP5-8.5 2100": [
+        0.79,
+        0.04
+      ],
+      "SSP5-8.5 2150": [
+        1.37,
+        0.06
+      ]
+    },
+    "v3_ssp585_2100_singapore_average_m": 0.79,
+    "v3_ssp585_2150_sultan_shoal_likely_high_m": 2.12,
+    "slr_scenarios": [
+      {
+        "id": "present",
+        "rise_m": 0.0,
+        "label": "today's tide (2026 predictions)",
+        "source": "no rise added"
+      },
+      {
+        "id": "cpcop_0p7",
+        "rise_m": 0.7,
+        "label": "+0.7 m (CPCOP 0.7m RMSLR planning scenario)",
+        "source": "PUB CPCOP 1st ed. (June 2026) Cl. 2.1, 2.2, 6.1; no year attached"
+      },
+      {
+        "id": "v3_ssp585_2100_high",
+        "rise_m": 1.15,
+        "label": "+1.15 m (V3 SSP5-8.5, 2100, top of likely range)",
+        "source": "MSS V3 Report for Stakeholders, Table 5.10, Sultan Shoal, SSP5-8.5, 2100, 83rd percentile"
+      },
+      {
+        "id": "cpcop_2p15",
+        "rise_m": 2.15,
+        "label": "+2.15 m (CPCOP 2.15m RMSLR planning scenario)",
+        "source": "PUB CPCOP 1st ed. (June 2026) Cl. 2.1, 6.1; no year attached"
+      }
+    ],
+    "combined_extreme_above_msl_m": 5.0,
+    "outfall_ground_shd_base": 4.0,
+    "outfall_ground_shd_sensitivity": [
+      4.5,
+      4.0,
+      3.5,
+      3.0,
+      2.5
+    ],
+    "tide_mean_shd": 0.0,
+    "pump_design_intensity_mm_hr": 150.0
+  },
+  "datum": {
+    "outfall_node": "OF",
+    "outfall_ground_local": 8.6,
+    "outfall_ground_shd": 4.0,
+    "local_minus_shd_m": 4.6,
+    "outfall_invert_local": 7.4,
+    "outfall_invert_shd": 2.8,
+    "outfall_drain_depth_m": 1.2,
+    "outfall_freeboard_line_shd": 3.82,
+    "ground_min_shd": 4.0,
+    "ground_max_shd": 5.6,
+    "hw_now_shd": 1.458,
+    "combined_extreme_shd": 5.0,
+    "n_nodes": 12,
+    "n_nodes_ground_below_combined_extreme": 7
+  },
+  "settings": {
+    "swmm_rise_tol_m": 0.02,
+    "gvf_rise_tol_m": 0.01,
+    "tide_resolution_m": 0.1,
+    "gvf_dx_m": 1.0,
+    "sweep_min": -2.6,
+    "sweep_max": 0.0,
+    "pump_fractions": [
+      1.0,
+      0.9,
+      0.75,
+      0.6,
+      0.5
+    ],
+    "verify_pump_fraction": 0.75
+  }
+}

@@ -18,11 +18,23 @@ Hydraulics: dynamic wave, open rectangular conduits (RECT_OPEN) with the
 COP concrete n = 0.015, invert elevations from ``rational.inverts``, free
 outfall, no ponding (water above the drain cope at a node is reported as
 flooding and lost).
+
+Outfall boundary (``build_inp(..., outfall=...)``, default free):
+  * ``{"type": "FIXED", "stage": z}`` or ``{"type": "TIMESERIES", "series":
+    [(minutes, z), ...]}`` - the sea level at the outfall (SWMM uses the
+    larger of that level and critical/normal depth), optional
+    ``"gated": True`` for a flap gate that stops backflow, and optional
+    ``"init_level": z`` to start the drains filled to the tide level;
+  * ``{"type": "PUMPED", "stage" or "series", "pump_m3s": Qp,
+    "sump_area_m2": A}`` - the outfall node becomes a sump (storage of plan
+    area A, floor at the outfall invert) that drains to the sea through a
+    flap-gated outlet and is emptied by a pump of capacity Qp (SWMM PUMP4
+    curve: flow rises to Qp over the first 0.05 m of sump depth).
 """
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 from . import cop
@@ -58,9 +70,42 @@ def _fmt(x: float, nd: int = 4) -> str:
     return f"{x:.{nd}f}"
 
 
+PUMP_RAMP_DEPTH_M = 0.05      # sump depth over which the pump reaches capacity
+GATE_CONDUIT_LENGTH_M = 10.0  # flap-gated outlet from the sump to the sea
+OUTFALL_TYPES = ("FREE", "FIXED", "TIMESERIES", "PUMPED")
+
+
+def _hm(minutes: float) -> str:
+    m = int(round(minutes))
+    return f"{m // 60}:{m % 60:02d}"
+
+
+def _stage_spec(bc: dict) -> str:
+    """Stage part of an [OUTFALLS] line for a FIXED or TIMESERIES sea level."""
+    if "series" in bc:
+        return "TIMESERIES  TIDE"
+    return f"FIXED  {_fmt(bc['stage'])}"
+
+
 def build_inp(net: Network, secs: dict, inv: dict, hyeto_mm_hr: list[float],
-              dt_min: int, title: str) -> str:
-    """Return the text of a SWMM .inp file."""
+              dt_min: int, title: str, *, outfall: dict | None = None,
+              report_series: bool = False) -> str:
+    """Return the text of a SWMM .inp file.
+
+    ``outfall`` sets the outfall boundary (see the module docstring; None =
+    free outfall).  ``report_series`` writes every node and link to the
+    binary output so that time series can be read back (``run_inp_series``).
+    """
+    bc = dict(outfall or {"type": "FREE"})
+    kind = bc.get("type", "FREE")
+    if kind not in OUTFALL_TYPES:
+        raise ValueError(f"unknown outfall type {kind}")
+    if kind in ("FIXED", "PUMPED") and "stage" not in bc and "series" not in bc:
+        raise ValueError(f"{kind} outfall needs a stage or a series")
+    if kind == "TIMESERIES" and "series" not in bc:
+        raise ValueError("TIMESERIES outfall needs a series")
+    gate = "YES" if bc.get("gated") else "NO"
+    init_level = bc.get("init_level")
     h = HYDROLOGY
     L: list[str] = []
     add = L.append
@@ -121,22 +166,57 @@ def build_inp(net: Network, secs: dict, inv: dict, hyeto_mm_hr: list[float],
     for nid, n in net.nodes.items():
         if n.outfall:
             continue
-        add(f"{nid}  {_fmt(node_inv[nid])}  {_fmt(node_cope[nid] - node_inv[nid])}  0  0  0")
+        ymax = node_cope[nid] - node_inv[nid]
+        if init_level is None:
+            y0 = "0"
+        else:
+            y0 = _fmt(min(max(0.0, init_level - node_inv[nid]), ymax))
+        add(f"{nid}  {_fmt(node_inv[nid])}  {_fmt(ymax)}  {y0}  0  0")
     add("")
+    outfall_ids = [nid for nid, n in net.nodes.items() if n.outfall]
+    if len(outfall_ids) != 1:
+        raise ValueError("the network must have exactly one outfall")
+    of = outfall_ids[0]
+    of_reach = next(r for r in net.reaches if r.to == of)
+    of_b, of_d, _ = secs[of_reach.id]
     add("[OUTFALLS]")
-    for nid, n in net.nodes.items():
-        if n.outfall:
-            add(f"{nid}  {_fmt(node_inv[nid])}  FREE  NO")
+    if kind == "FREE":
+        add(f"{of}  {_fmt(node_inv[of])}  FREE  {gate}")
+    elif kind in ("FIXED", "TIMESERIES"):
+        add(f"{of}  {_fmt(node_inv[of])}  {_stage_spec(bc)}  {gate}")
+    else:  # PUMPED: the sea sits behind a flap-gated outlet; the pump lifts over the wall
+        add(f"SEA  {_fmt(node_inv[of])}  {_stage_spec(bc)}  YES")
+        add(f"SEA_P  {_fmt(node_cope[of])}  FREE  NO")
     add("")
+    if kind == "PUMPED":
+        add("[STORAGE]")
+        # constant plan area A: FUNCTIONAL area = A1 * depth^A2 + A0 with A1 = A2 = 0
+        add(f"{of}  {_fmt(node_inv[of])}  {_fmt(node_cope[of] - node_inv[of])}  0  FUNCTIONAL"
+            f"  0  0  {_fmt(bc['sump_area_m2'], 1)}  0  0")
+        add("")
     add("[CONDUITS]")
     for r in net.reaches:
         add(f"{r.id}  {r.frm}  {r.to}  {_fmt(r.length, 2)}  {cop.MANNING_N['concrete']}"
             f"  {_fmt(inv[r.id]['inv_up'])}  {_fmt(inv[r.id]['inv_dn'])}  0  0")
+    if kind == "PUMPED":
+        add(f"GATE  {of}  SEA  {_fmt(GATE_CONDUIT_LENGTH_M, 2)}  {cop.MANNING_N['concrete']}"
+            f"  {_fmt(node_inv[of])}  {_fmt(node_inv[of])}  0  0")
     add("")
+    if kind == "PUMPED":
+        add("[PUMPS]")
+        add(f"PUMP1  {of}  SEA_P  PCURVE  ON  0  0")
+        add("")
+        add("[CURVES]")
+        add("PCURVE  PUMP4  0  0")
+        add(f"PCURVE  {PUMP_RAMP_DEPTH_M}  {_fmt(bc['pump_m3s'])}")
+        add(f"PCURVE  {_fmt(node_cope[of] - node_inv[of] + 1.0)}  {_fmt(bc['pump_m3s'])}")
+        add("")
     add("[XSECTIONS]")
     for r in net.reaches:
         b, d, _ = secs[r.id]
         add(f"{r.id}  RECT_OPEN  {d}  {b}  0  0  1")
+    if kind == "PUMPED":
+        add(f"GATE  RECT_OPEN  {of_d}  {of_b}  0  0  1")
     add("")
     add("[TIMESERIES]")
     for k, v in enumerate(hyeto_mm_hr):
@@ -144,16 +224,26 @@ def build_inp(net: Network, secs: dict, inv: dict, hyeto_mm_hr: list[float],
         add(f"DESIGN_STORM  {t // 60}:{t % 60:02d}  {_fmt(v, 3)}")
     t = len(hyeto_mm_hr) * dt_min
     add(f"DESIGN_STORM  {t // 60}:{t % 60:02d}  0.000")
+    if "series" in bc and kind != "FREE":
+        for tm, z in bc["series"]:
+            add(f"TIDE  {_hm(tm)}  {_fmt(z)}")
     add("")
     add("[REPORT]")
     add("INPUT NO")
     add("CONTINUITY YES")
     add("FLOWSTATS YES")
     add("CONTROLS NO")
+    if report_series:
+        add("NODES ALL")
+        add("LINKS ALL")
     add("")
     add("[COORDINATES]")
     for nid, n in net.nodes.items():
         add(f"{nid}  {_fmt(n.x, 1)}  {_fmt(n.y, 1)}")
+    if kind == "PUMPED":
+        n = net.nodes[of]
+        add(f"SEA  {_fmt(n.x + 20, 1)}  {_fmt(n.y, 1)}")
+        add(f"SEA_P  {_fmt(n.x + 20, 1)}  {_fmt(n.y + 15, 1)}")
     add("")
     add("[Polygons]")
     for s in net.subcatchments:
@@ -175,6 +265,7 @@ class SwmmResult:
     total_precip_mm: float
     runoff_coefficient: float
     warnings: list
+    pumps: dict = field(default_factory=dict)   # id -> {type, max_flow}
 
 
 def run_inp(inp_path: Path) -> SwmmResult:
@@ -184,6 +275,34 @@ def run_inp(inp_path: Path) -> SwmmResult:
     out = inp_path.with_suffix(".out")
     solver.swmm_run(str(inp_path), str(rpt), str(out))
     return parse_rpt(rpt.read_text(errors="replace"))
+
+
+def run_inp_series(inp_path: Path, links=(), nodes=()) -> tuple[SwmmResult, dict]:
+    """Run the model, parse the report, and read time series from the binary
+    output: flow (m3/s) of ``links`` and hydraulic head (m) of ``nodes``.
+    The .inp must have been built with ``report_series=True``.  Values are
+    at the end of each reporting step (t_s = step, 2 * step, ...)."""
+    from swmm.toolkit import output, shared_enum
+    inp_path = Path(inp_path)
+    res = run_inp(inp_path)
+    h = output.init()
+    output.open(h, str(inp_path.with_suffix(".out")))
+    try:
+        n_per = output.get_times(h, shared_enum.Time.NUM_PERIODS)
+        step = output.get_times(h, shared_enum.Time.REPORT_STEP)
+        _, n_nodes, n_links = output.get_proj_size(h)[:3]
+        node_names = [output.get_elem_name(h, shared_enum.ElementType.NODE, k) for k in range(n_nodes)]
+        link_names = [output.get_elem_name(h, shared_enum.ElementType.LINK, k) for k in range(n_links)]
+        series = {"t_s": [step * (k + 1) for k in range(n_per)], "link_flow": {}, "node_head": {}}
+        for lid in links:
+            series["link_flow"][lid] = list(output.get_link_series(
+                h, link_names.index(lid), shared_enum.LinkAttribute.FLOW_RATE, 0, n_per - 1))
+        for nid in nodes:
+            series["node_head"][nid] = list(output.get_node_series(
+                h, node_names.index(nid), shared_enum.NodeAttribute.HYDRAULIC_HEAD, 0, n_per - 1))
+    finally:
+        output.close(h)
+    return res, series
 
 
 def _section(text: str, title: str) -> list[str]:
@@ -219,8 +338,12 @@ def parse_rpt(text: str) -> SwmmResult:
     m = re.search(r"Total Precipitation \.+\s+[\d.]+\s+([\d.]+)", text)
     total_precip = float(m.group(1)) if m else float("nan")
     links = {}
+    pumps = {}
     for ln in _section(text, "Link Flow Summary"):
         p = ln.split()
+        if p[1] != "CONDUIT":       # a pump row has no velocity or depth columns
+            pumps[p[0]] = {"type": p[1], "max_flow": float(p[2])}
+            continue
         # Name Type MaxFlow Day hr:min MaxVeloc MaxFull/Flow MaxFull/Depth
         links[p[0]] = {"max_flow": float(p[2]), "max_velocity": float(p[5]),
                        "max_over_full_flow": float(p[6]), "max_over_full_depth": float(p[7])}
@@ -251,4 +374,5 @@ def parse_rpt(text: str) -> SwmmResult:
         total_flood_volume_m3=sum(n["flood_volume_m3"] for n in nodes.values()),
         total_precip_mm=total_precip, runoff_coefficient=rc,
         warnings=[w.strip() for w in re.findall(r"WARNING.*", text)],
+        pumps=pumps,
     )

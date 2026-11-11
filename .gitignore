@@ -10,3 +10,6 @@ __pycache__/
 # local QA overlays reproduce the COP chart - keep them out of git
 qa_*.png
 mutation/_work/
+
+# Local copy of the NEA/MPA tide table: NEA terms do not allow redistribution (docs/sources.md 6.4)
+data/local/

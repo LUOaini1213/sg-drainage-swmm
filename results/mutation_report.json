@@ -1,13 +1,25 @@
 {
-  "baseline_passed": 57,
-  "baseline_seconds": 18.9,
-  "n_mutants": 20,
-  "n_valid": 20,
+  "baseline_passed": 124,
+  "baseline_seconds": 94.7,
+  "n_mutants": 46,
+  "n_valid": 46,
   "all_compile": true,
-  "n_killed": 20,
+  "n_killed": 46,
   "n_survived": 0,
   "survivors": [],
   "invalid": [],
+  "groups": {
+    "design": {
+      "n": 20,
+      "n_killed": 20,
+      "survivors": []
+    },
+    "tide": {
+      "n": 26,
+      "n_killed": 26,
+      "survivors": []
+    }
+  },
   "mutants": [
     {
       "id": "M01",
@@ -18,8 +30,8 @@
       "compiles": true,
       "status": "killed",
       "pytest_exit_code": 1,
-      "first_failing_test": "tests/test_hydraulics.py::test_manning_hand_calculation",
-      "seconds": 13.1
+      "first_failing_test": "tests/test_backwater.py::test_uniform_flow_is_reproduced",
+      "seconds": 24.3
     },
     {
       "id": "M02",
@@ -30,8 +42,8 @@
       "compiles": true,
       "status": "killed",
       "pytest_exit_code": 1,
-      "first_failing_test": "tests/test_hydraulics.py::test_manning_hand_calculation",
-      "seconds": 12.4
+      "first_failing_test": "tests/test_backwater.py::test_uniform_flow_is_reproduced",
+      "seconds": 21.3
     },
     {
       "id": "M03",
@@ -42,8 +54,8 @@
       "compiles": true,
       "status": "killed",
       "pytest_exit_code": 1,
-      "first_failing_test": "tests/test_cop.py::test_cop_constants_match_the_code",
-      "seconds": 12.3
+      "first_failing_test": "tests/test_backwater.py::test_free_outfall_profile_keeps_the_design_compliant",
+      "seconds": 24.2
     },
     {
       "id": "M04",
@@ -54,8 +66,8 @@
       "compiles": true,
       "status": "killed",
       "pytest_exit_code": 1,
-      "first_failing_test": "tests/test_cop.py::test_cop_constants_match_the_code",
-      "seconds": 13.5
+      "first_failing_test": "tests/test_backwater.py::test_higher_tailwater_raises_more_and_further",
+      "seconds": 24.2
     },
     {
       "id": "M05",
@@ -67,7 +79,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_cop.py::test_cop_constants_match_the_code",
-      "seconds": 10.3
+      "seconds": 68.6
     },
     {
       "id": "M06",
@@ -79,7 +91,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_cop.py::test_return_period_rule",
-      "seconds": 10.6
+      "seconds": 58.3
     },
     {
       "id": "M07",
@@ -90,8 +102,8 @@
       "compiles": true,
       "status": "killed",
       "pytest_exit_code": 1,
-      "first_failing_test": "tests/test_cop.py::test_weighted_c",
-      "seconds": 10.5
+      "first_failing_test": "tests/test_backwater.py::test_critical_tailwater_is_bracketed",
+      "seconds": 30.2
     },
     {
       "id": "M08",
@@ -102,8 +114,8 @@
       "compiles": true,
       "status": "killed",
       "pytest_exit_code": 1,
-      "first_failing_test": "tests/test_rational.py::test_tc_iteration_converged",
-      "seconds": 15.5
+      "first_failing_test": "tests/test_backwater.py::test_higher_tailwater_raises_more_and_further",
+      "seconds": 26.5
     },
     {
       "id": "M09",
@@ -114,8 +126,8 @@
       "compiles": true,
       "status": "killed",
       "pytest_exit_code": 1,
-      "first_failing_test": "tests/test_rational.py::test_tc_iteration_converged",
-      "seconds": 14.3
+      "first_failing_test": "tests/test_backwater.py::test_critical_tailwater_is_bracketed",
+      "seconds": 26.4
     },
     {
       "id": "M10",
@@ -126,8 +138,8 @@
       "compiles": true,
       "status": "killed",
       "pytest_exit_code": 1,
-      "first_failing_test": "tests/test_rational.py::test_contributing_area_and_ca_accumulate",
-      "seconds": 14.7
+      "first_failing_test": "tests/test_backwater.py::test_free_outfall_profile_keeps_the_design_compliant",
+      "seconds": 19.6
     },
     {
       "id": "M11",
@@ -139,7 +151,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_rational.py::test_tc_iteration_converged",
-      "seconds": 12.4
+      "seconds": 60.1
     },
     {
       "id": "M12",
@@ -150,8 +162,8 @@
       "compiles": true,
       "status": "killed",
       "pytest_exit_code": 1,
-      "first_failing_test": "tests/test_rational.py::test_chosen_section_is_smallest_compliant",
-      "seconds": 12.2
+      "first_failing_test": "tests/test_backwater.py::test_tide_effect_counts_only_raised_stations",
+      "seconds": 20.0
     },
     {
       "id": "M13",
@@ -163,7 +175,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_rational.py::test_check_section_flags_each_criterion_independently",
-      "seconds": 7.7
+      "seconds": 56.8
     },
     {
       "id": "M14",
@@ -175,7 +187,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_stress.py::test_upsizing_never_shrinks_and_restores_compliance[cc_v3_low]",
-      "seconds": 8.3
+      "seconds": 66.1
     },
     {
       "id": "M15",
@@ -187,7 +199,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_rational.py::test_levels_no_upward_step_when_binding",
-      "seconds": 8.0
+      "seconds": 62.8
     },
     {
       "id": "M16",
@@ -199,7 +211,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_idf_hyetograph.py::test_interpolation_exact_at_nodes_and_loglog_between",
-      "seconds": 5.4
+      "seconds": 36.7
     },
     {
       "id": "M17",
@@ -211,7 +223,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_idf_hyetograph.py::test_uplift_is_multiplicative_and_range_checked",
-      "seconds": 6.3
+      "seconds": 61.5
     },
     {
       "id": "M18",
@@ -223,7 +235,7 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_idf_hyetograph.py::test_alternating_block_properties[10-120-5]",
-      "seconds": 14.5
+      "seconds": 52.7
     },
     {
       "id": "M19",
@@ -235,19 +247,331 @@
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_idf_hyetograph.py::test_alternating_block_properties[10-120-5]",
-      "seconds": 28.3
+      "seconds": 41.8
     },
     {
       "id": "M20",
       "file": "sgdrain/swmm_model.py",
       "description": "SWMM conduits use n = 0.013 instead of the COP 0.015",
-      "original": "{cop.MANNING_N['concrete']}",
-      "mutated": "0.013",
+      "original": "add(f\"{r.id}  {r.frm}  {r.to}  {_fmt(r.length, 2)}  {cop.MANNING_N['concrete']}\"",
+      "mutated": "add(f\"{r.id}  {r.frm}  {r.to}  {_fmt(r.length, 2)}  0.013\"",
       "compiles": true,
       "status": "killed",
       "pytest_exit_code": 1,
       "first_failing_test": "tests/test_swmm.py::test_inp_reflects_the_design",
-      "seconds": 46.4
+      "seconds": 63.8
+    },
+    {
+      "id": "T01",
+      "file": "sgdrain/coastal.py",
+      "description": "local-to-SHD offset applied with the wrong sign",
+      "original": "return z_local - outfall_ground_local + outfall_ground_shd",
+      "mutated": "return z_local + outfall_ground_local - outfall_ground_shd",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_coastal.py::test_local_shd_conversion",
+      "seconds": 58.3
+    },
+    {
+      "id": "T02",
+      "file": "sgdrain/coastal.py",
+      "description": "Chart Datum heights used as SHD (tide mean not removed)",
+      "original": "return h_cd - tide_mean_cd + tide_mean_shd",
+      "mutated": "return h_cd + tide_mean_shd",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_coastal.py::test_chart_datum_conversion",
+      "seconds": 50.1
+    },
+    {
+      "id": "T03",
+      "file": "sgdrain/coastal.py",
+      "description": "V3 scenario takes the median, not the cited top of range",
+      "original": "V3_TABLE_5_10[\"Sultan Shoal\"][(\"SSP5-8.5\", 2100)][2]",
+      "mutated": "V3_TABLE_5_10[\"Sultan Shoal\"][(\"SSP5-8.5\", 2100)][0]",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_coastal.py::test_slr_scenarios_are_the_cited_figures",
+      "seconds": 60.8
+    },
+    {
+      "id": "T04",
+      "file": "sgdrain/coastal.py",
+      "description": "datum anchored on the wrong COP level",
+      "original": "OUTFALL_GROUND_SHD_BASE = MIN_PLATFORM_LEVEL_SHD[\"southern_coast\"]",
+      "mutated": "OUTFALL_GROUND_SHD_BASE = MIN_PLATFORM_LEVEL_SHD[\"northern_coast\"]",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_coastal.py::test_datum_assumption_is_anchored_on_the_cop",
+      "seconds": 62.3
+    },
+    {
+      "id": "T05",
+      "file": "sgdrain/tide.py",
+      "description": "tide interpolated linearly instead of by half cosine",
+      "original": "(1.0 - math.cos(math.pi * f)) / 2.0",
+      "mutated": "f",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_swmm_tide.py::test_committed_sweep_rows_reproduce[-0.1]",
+      "seconds": 68.6
+    },
+    {
+      "id": "T06",
+      "file": "sgdrain/tide.py",
+      "description": "tide mean uses only the earlier extreme of each interval",
+      "original": "num += 0.5 * (a.height_cd + b.height_cd) * dt",
+      "mutated": "num += a.height_cd * dt",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_tide.py::test_mean_level_is_the_exact_time_mean",
+      "seconds": 69.5
+    },
+    {
+      "id": "T07",
+      "file": "sgdrain/tide.py",
+      "description": "the latest, not the earliest, of tied high waters",
+      "original": "return next(e for e in ev if e.kind == \"H\" and e.height_cd == top)",
+      "mutated": "return [e for e in ev if e.kind == \"H\" and e.height_cd == top][-1]",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_tide.py::test_highest_high_water",
+      "seconds": 71.1
+    },
+    {
+      "id": "T08",
+      "file": "sgdrain/tide.py",
+      "description": "high water placed at the start of the run, not at the storm peak",
+      "original": "t0 = hw.time - timedelta(minutes=peak_offset_min)",
+      "mutated": "t0 = hw.time",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_swmm_tide.py::test_committed_sweep_rows_reproduce[-0.1]",
+      "seconds": 59.5
+    },
+    {
+      "id": "T09",
+      "file": "sgdrain/backwater.py",
+      "description": "friction slope with R^(2/3) instead of R^(4/3)",
+      "original": "return (n * v) ** 2 / r ** (4.0 / 3.0)",
+      "mutated": "return (n * v) ** 2 / r ** (2.0 / 3.0)",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_backwater.py::test_uniform_flow_is_reproduced",
+      "seconds": 23.1
+    },
+    {
+      "id": "T10",
+      "file": "sgdrain/backwater.py",
+      "description": "bed slope sign reversed in the energy balance",
+      "original": "return (s0 * dx + y + velocity_head(q, b, y) - h_dn",
+      "mutated": "return (-s0 * dx + y + velocity_head(q, b, y) - h_dn",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_backwater.py::test_uniform_flow_is_reproduced",
+      "seconds": 21.3
+    },
+    {
+      "id": "T11",
+      "file": "sgdrain/backwater.py",
+      "description": "downstream depth measured from the wrong invert",
+      "original": "y_dn = max(yn, wl_node[r.to] - inv[r.id][\"inv_dn\"])",
+      "mutated": "y_dn = max(yn, wl_node[r.to] - inv[r.id][\"inv_up\"])",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_backwater.py::test_free_outfall_profile_keeps_the_design_compliant",
+      "seconds": 22.9
+    },
+    {
+      "id": "T12",
+      "file": "sgdrain/backwater.py",
+      "description": "backwater check ignores the COP freeboard (only overtopping)",
+      "original": "fb_limit = (1.0 - cop.FREEBOARD_FRACTION) * d",
+      "mutated": "fb_limit = d",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_backwater.py::test_critical_tailwater_is_bracketed",
+      "seconds": 23.0
+    },
+    {
+      "id": "T13",
+      "file": "sgdrain/backwater.py",
+      "description": "junction level not passed upstream (backwater stops at a node)",
+      "original": "wl_node[r.frm] = p[\"wl_up\"]",
+      "mutated": "wl_node[r.frm] = p[\"inv\"][-1] + p[\"yn\"]",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_backwater.py::test_junction_levels_are_continuous",
+      "seconds": 18.9
+    },
+    {
+      "id": "T14",
+      "file": "sgdrain/backwater.py",
+      "description": "bisection for the highest tolerable outfall level runs the wrong way",
+      "original": "        if ok(mid):",
+      "mutated": "        if not ok(mid):",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_backwater.py::test_critical_tailwater_is_bracketed",
+      "seconds": 27.0
+    },
+    {
+      "id": "T15",
+      "file": "sgdrain/backwater.py",
+      "description": "upsizing keeps the old inverts (a deeper drain's cope rises above ground)",
+      "original": "p = network_profile(net, trial, rational.inverts(net, trial), flows, tailwater)",
+      "mutated": "p = network_profile(net, trial, rational.inverts(net, cur), flows, tailwater)",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_backwater.py::test_upsizing_cannot_beat_a_sea_above_the_freeboard_line",
+      "seconds": 35.0
+    },
+    {
+      "id": "T16",
+      "file": "sgdrain/backwater.py",
+      "description": "backwater extent counts stations that are not raised",
+      "original": "if dz >= tol:",
+      "mutated": "if dz >= -tol:",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_backwater.py::test_tide_effect_counts_only_raised_stations",
+      "seconds": 26.6
+    },
+    {
+      "id": "T17",
+      "file": "sgdrain/pumpsump.py",
+      "description": "sump storage allowed to go below empty",
+      "original": "s = max(0.0, s + 0.5 * (e0 + e1) * dt)",
+      "mutated": "s = s + 0.5 * (e0 + e1) * dt",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_pumpsump.py::test_crossing_inside_a_step_is_exact",
+      "seconds": 49.6
+    },
+    {
+      "id": "T18",
+      "file": "sgdrain/pumpsump.py",
+      "description": "inflow assumed to cross the pump rate mid-step",
+      "original": "tc = dt * e0 / (e0 - e1)",
+      "mutated": "tc = 0.5 * dt",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_pumpsump.py::test_triangle_closed_form[1.5]",
+      "seconds": 48.7
+    },
+    {
+      "id": "T19",
+      "file": "sgdrain/swmm_model.py",
+      "description": "flap gate dropped from the SWMM outfall",
+      "original": "gate = \"YES\" if bc.get(\"gated\") else \"NO\"",
+      "mutated": "gate = \"NO\"",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_swmm_tide.py::test_timeseries_outfall_text",
+      "seconds": 77.8
+    },
+    {
+      "id": "T20",
+      "file": "sgdrain/swmm_model.py",
+      "description": "open outfall: drains not pre-filled to the tide level",
+      "original": "y0 = _fmt(min(max(0.0, init_level - node_inv[nid]), ymax))",
+      "mutated": "y0 = \"0\"",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_swmm_tide.py::test_timeseries_outfall_text",
+      "seconds": 76.2
+    },
+    {
+      "id": "T21",
+      "file": "sgdrain/tide_pipeline.py",
+      "description": "extra overtopping not measured against the free outfall",
+      "original": "\"d_flood_m3\": round(res.total_flood_volume_m3 - res0.total_flood_volume_m3, 1),",
+      "mutated": "\"d_flood_m3\": round(res.total_flood_volume_m3, 1),",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_swmm_tide.py::test_committed_sweep_rows_reproduce[-0.1]",
+      "seconds": 88.8
+    },
+    {
+      "id": "T22",
+      "file": "sgdrain/tide_pipeline.py",
+      "description": "sea-level rise subtracted",
+      "original": "coastal.cd_to_shd(h, ctx[\"mean_cd\"]) + slr",
+      "mutated": "coastal.cd_to_shd(h, ctx[\"mean_cd\"]) - slr",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_tide.py::test_stage_series_datum_and_slr",
+      "seconds": 79.1
+    },
+    {
+      "id": "T23",
+      "file": "sgdrain/tide_pipeline.py",
+      "description": "sweep loses the tide curve (flat sea at high water)",
+      "original": "return [(t, ctx[\"of_ground_local\"] + hw_rel_ground + (h - top)) for t, h in ctx[\"curve_cd\"]]",
+      "mutated": "return [(t, ctx[\"of_ground_local\"] + hw_rel_ground) for t, h in ctx[\"curve_cd\"]]",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_tide.py::test_stage_series_datum_and_slr",
+      "seconds": 74.3
+    },
+    {
+      "id": "T24",
+      "file": "sgdrain/tide_pipeline.py",
+      "description": "storm peak taken at the start of the peak block",
+      "original": "return (k + 0.5) * dt_min",
+      "mutated": "return k * dt_min",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_swmm_tide.py::test_committed_sweep_rows_reproduce[0.0]",
+      "seconds": 87.7
+    },
+    {
+      "id": "T25",
+      "file": "sgdrain/tide_pipeline.py",
+      "description": "drains pre-filled behind the flap gate instead of the open outfall",
+      "original": "    if not gated:",
+      "mutated": "    if gated:",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_tide.py::test_tidal_outfall_configuration",
+      "seconds": 92.7
+    },
+    {
+      "id": "T26",
+      "file": "sgdrain/tide_pipeline.py",
+      "description": "the outfall boundary node counted as raised by the tide",
+      "original": "rise = {n: head[n] - head0[n] for n in head if n != of}",
+      "mutated": "rise = {n: head[n] - head0[n] for n in head}",
+      "compiles": true,
+      "status": "killed",
+      "pytest_exit_code": 1,
+      "first_failing_test": "tests/test_swmm_tide.py::test_committed_sweep_rows_reproduce[-0.1]",
+      "seconds": 91.3
     }
   ],
   "history": [
@@ -267,7 +591,80 @@
       "n_mutants": 20,
       "n_killed": 20,
       "survivors": []
+    },
+    {
+      "round": 3,
+      "baseline_passed": 119,
+      "n_mutants": 46,
+      "n_killed": 43,
+      "survivors": [
+        "T15 (upsizing keeps the old inverts (a deeper drain's cope rises above ground))",
+        "T16 (backwater extent counts stations that are not raised)"
+      ],
+      "groups": {
+        "design": {
+          "n": 20,
+          "n_killed": 19,
+          "survivors": []
+        },
+        "tide": {
+          "n": 26,
+          "n_killed": 24,
+          "survivors": [
+            "T15 (upsizing keeps the old inverts (a deeper drain's cope rises above ground))",
+            "T16 (backwater extent counts stations that are not raised)"
+          ]
+        }
+      }
+    },
+    {
+      "round": 4,
+      "baseline_passed": 121,
+      "n_mutants": 46,
+      "n_killed": 46,
+      "survivors": [],
+      "groups": {
+        "design": {
+          "n": 20,
+          "n_killed": 20,
+          "survivors": []
+        },
+        "tide": {
+          "n": 26,
+          "n_killed": 26,
+          "survivors": []
+        }
+      }
+    },
+    {
+      "round": 5,
+      "baseline_passed": 124,
+      "n_mutants": 46,
+      "n_killed": 46,
+      "survivors": [],
+      "groups": {
+        "design": {
+          "n": 20,
+          "n_killed": 20,
+          "survivors": []
+        },
+        "tide": {
+          "n": 26,
+          "n_killed": 26,
+          "survivors": []
+        }
+      }
     }
   ],
-  "round": 2
+  "round": 5,
+  "tide_first_round": {
+    "round": 3,
+    "baseline_passed": 119,
+    "n": 26,
+    "n_killed": 24,
+    "survivors": [
+      "T15 (upsizing keeps the old inverts (a deeper drain's cope rises above ground))",
+      "T16 (backwater extent counts stations that are not raised)"
+    ]
+  }
 }

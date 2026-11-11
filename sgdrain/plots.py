@@ -264,6 +264,152 @@ def sweep_plot(rat_csv: Path, swmm_csv: Path, path: Path):
     _save(fig, path)
 
 
+SEA = ["#9cc3f0", "#5b9be6", "#2a6fcf", "#123f8a"]   # tide today .. +2.15 m (lighter = lower)
+
+
+def _chainage(net):
+    main = net.main_line()
+    ch, x = {}, 0.0
+    for r in main:
+        ch[r.frm] = x
+        x += r.length
+        ch[r.to] = x
+    return main, ch
+
+
+def tide_long_section(net, secs, inv, profiles, base_open, summary, inputs, path: Path):
+    """Main drain in SHD (assumptions A1, A2) against the tide/SLR levels."""
+    main, ch = _chainage(net)
+    off = inputs["datum"]["local_minus_shd_m"]
+    x_end = ch[main[-1].to]
+    fig, ax = plt.subplots(figsize=(11, 6.2))
+    xs_g = [ch[r.frm] for r in main] + [ch[main[-1].to]]
+    gs = [net.nodes[r.frm].ground - off for r in main] + [net.nodes[main[-1].to].ground - off]
+    ax.plot(xs_g, gs, color="#8b6b3d", lw=1.6, label="ground (synthetic, outfall tied to SHD by assumption A1)")
+    first = True
+    for r in main:
+        x0, x1 = ch[r.frm], ch[r.to]
+        lv = inv[r.id]
+        ax.fill_between([x0, x1], [lv["inv_up"] - off, lv["inv_dn"] - off],
+                        [lv["cope_up"] - off, lv["cope_dn"] - off], color="#e8e7e3", lw=0, zorder=0)
+        ax.plot([x0, x1], [lv["inv_up"] - off, lv["inv_dn"] - off], color=INK, lw=1.6,
+                label="drain invert" if first else None)
+        fb = cop.FREEBOARD_FRACTION * secs[r.id][1]
+        ax.plot([x0, x1], [lv["cope_up"] - fb - off, lv["cope_dn"] - fb - off], color=MUTED, lw=0.8,
+                ls=":", label="cope - COP freeboard (15% D)" if first else None)
+        first = False
+    styles = {"free": (BLUE, "-", 2.0, "design flow, free outfall (backwater curve)"),
+              "critical": (VIOLET, "--", 1.6,
+                           f"design flow, outfall level {summary['design_tw_crit_shd']:.2f} m SHD "
+                           "(highest that keeps the COP freeboard)"),
+              "at_ground": (CRITICAL, "-.", 1.4, "design flow, sea level at the outfall ground")}
+    for key, (col, ls, lw, lab) in styles.items():
+        first = True
+        for r in main:
+            p = profiles[key][r.id]
+            ax.plot([ch[r.to] - x for x in p["x"]], [w - off for w in p["wl"]], color=col, ls=ls,
+                    lw=lw, label=lab if first else None)
+            first = False
+    for row, col in zip(base_open, SEA):
+        z = row["peak_sea_level_shd"]
+        ax.axhline(z, color=col, lw=1.2, zorder=0.5)
+        ax.text(4, z + 0.03, f"high water, {row['slr_label']}: {z:.2f} m SHD", fontsize=7,
+                color=col, va="bottom")
+    box = dict(boxstyle="round,pad=0.15", fc=SURFACE, ec="none", alpha=0.9)
+    plat = inputs["coastal"]["min_platform_level_shd"]
+    ax.axhline(plat["northern_coast"], color=MUTED, lw=0.8, ls=(0, (6, 3)), zorder=-1)
+    ax.text(x_end - 2, plat["northern_coast"] + 0.03, f"COP min. platform level, northern coast "
+            f"{plat['northern_coast']:.1f} m SHD", fontsize=7, color=INK2, va="bottom", ha="right",
+            bbox=box)
+    of = main[-1].to
+    inv_of = inv[main[-1].id]["inv_dn"] - off
+    z_lab = 0.5 * (inv_of + max(r["peak_sea_level_shd"] for r in base_open
+                                if r["peak_sea_level_shd"] < inv_of))
+    ax.annotate(f"outfall ground {inputs['datum']['outfall_ground_shd']:.1f} m SHD = COP min. platform "
+                "level, southern coast (assumption A1)",
+                (ch[of], net.nodes[of].ground - off), xytext=(x_end - 6, z_lab), textcoords="data",
+                ha="right", va="center", fontsize=7, color=INK2, bbox=box,
+                arrowprops=dict(arrowstyle="-", color=MUTED, lw=0.6, relpos=(1.0, 0.5)))
+    ext = inputs["datum"]["combined_extreme_shd"]
+    ax.axhline(ext, color=CRITICAL, lw=0.8, ls=(0, (2, 2)), zorder=-1)
+    ax.text(x_end - 2, ext + 0.03, f"{ext:.1f} m SHD: 'up to "
+            f"{inputs['coastal']['combined_extreme_above_msl_m']:.0f} m above today's mean sea level'\n"
+            "with storm surge and high tide (MSE 2026) - not modelled",
+            fontsize=7, color=CRITICAL, va="bottom", ha="right", bbox=box)
+    for r in main + [None]:
+        n = r.frm if r else main[-1].to
+        ax.annotate(n, (ch[n], net.nodes[n].ground - off + 0.08), ha="center", fontsize=8, color=INK)
+        ax.axvline(ch[n], color=GRID, lw=0.8, zorder=-2)
+    ax.set_xlim(0, x_end + 5)
+    ax.set_ylim(min(row["peak_sea_level_shd"] for row in base_open) - 0.3, ext + 0.45)
+    ax.set_xlabel("chainage along main drain J1 -> OF (m)")
+    ax.set_ylabel("level (m SHD, under assumptions A1 and A2)")
+    sec = ax.secondary_yaxis("right", functions=(lambda z: z + off, lambda z: z - off))
+    sec.set_ylabel("level (m, local datum of the catchment)")
+    ax.set_title("Main drain against today's highest predicted high water and sea-level rise", loc="left")
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.12), fontsize=7, ncol=3)
+    fig.text(0.99, 0.01, SYNTH + "; no storm surge", ha="right", va="bottom", fontsize=7, color=MUTED)
+    fig.tight_layout()
+    _save(fig, path)
+
+
+def tide_sweep_plot(sweep, base_open, inputs, path: Path):
+    x = [r["hw_minus_outfall_ground_m"] for r in sweep]
+    off = inputs["datum"]["outfall_ground_shd"]
+    inv_rel = inputs["datum"]["outfall_invert_shd"] - off
+    fb_rel = inputs["datum"]["outfall_freeboard_line_shd"] - off
+    fig, axes = plt.subplots(1, 2, figsize=(11.5, 4.3), sharex=True)
+    ax = axes[0]
+    ax.plot(x, [r["d_flood_m3_open"] for r in sweep], color=ORANGE, lw=2, marker="o", ms=3.5,
+            label="open outfall (tide enters the drains)")
+    ax.plot(x, [r["d_flood_m3_gated"] for r in sweep], color=INK2, lw=1.2, ls="--", marker="x", ms=4,
+            label="flap-gated outfall")
+    ax.set_ylabel("extra SWMM overtopping vs free outfall (m3)")
+    ax.set_title("(a) SWMM, 10-yr design storm at high water", loc="left")
+    ax.legend(loc="upper left", fontsize=7.5)
+    ax = axes[1]
+    ax.plot(x, [r["gvf_extent_main_m"] for r in sweep], color=BLUE, lw=2, marker="o", ms=3.5,
+            label="backwater extent up the main drain (>= 1 cm rise)")
+    ax.set_ylabel("distance from the outfall (m)")
+    ax2 = ax.twinx()
+    ax2.step(x, [r["gvf_n_fail_due_to_tide"] for r in sweep], where="mid", color=CRITICAL, lw=1.2,
+             label="reaches losing the COP freeboard")
+    ax2.set_ylabel("reaches losing the COP freeboard", color=CRITICAL)
+    ax2.tick_params(axis="y", colors=CRITICAL)
+    ax2.spines["right"].set_visible(True)
+    ax2.grid(False)
+    ax.set_title("(b) Steady backwater at the rational design flows", loc="left")
+    h1, l1 = ax.get_legend_handles_labels()
+    h2, l2 = ax2.get_legend_handles_labels()
+    ax.legend(h1 + h2, l1 + l2, loc="upper left", fontsize=7.5)
+    for a in axes:
+        a.axvline(inv_rel, color=MUTED, lw=0.8, ls=":")
+        a.axvline(fb_rel, color=VIOLET, lw=0.8, ls="--")
+        lo, hi = a.get_ylim()
+        a.text(inv_rel + 0.02, lo + 0.55 * (hi - lo), "outfall invert", rotation=90, fontsize=7, color=MUTED)
+        a.text(fb_rel - 0.07, lo + 0.55 * (hi - lo), "COP freeboard line", rotation=90, fontsize=7,
+               color=VIOLET)
+        for row, col in zip(base_open, SEA):
+            xr = row["peak_sea_level_shd"] - off
+            if x[0] <= xr <= x[-1]:
+                a.plot([xr], [lo], marker="^", color=col, ms=8, clip_on=False, zorder=6)
+        a.set_xlabel("high water minus outfall ground (m)")
+        sec = a.secondary_xaxis("top", functions=(lambda v: v + off, lambda v: v - off))
+        sec.set_xlabel("high water at the base assumption (m SHD)", fontsize=8)
+    fig.text(0.01, 0.01, f"triangles: the {len(base_open)} tide/sea-level scenarios at the base assumption "
+             f"(outfall ground {off:.1f} m SHD)", fontsize=7, color=MUTED)
+    fig.tight_layout(rect=(0, 0.04, 1, 1))
+    _save(fig, path)
+
+
+def tide_figures(net, secs, inv, profiles, base_open, sweep, summary, inputs, outdir: Path):
+    labels = {s["id"]: s["label"] for s in inputs["coastal"]["slr_scenarios"]}
+    rows = [dict(r, slr_label=labels[r["slr_id"]]) for r in base_open
+            if r["storm"] == "design_10yr" and r["sizes"] == "design"]
+    tide_long_section(net, secs, inv, profiles, rows, summary, inputs, outdir / "long_section_tide.png")
+    tide_sweep_plot(sweep, rows, inputs, outdir / "tide_level_sweep.png")
+
+
 def make_all(net, design, secs, inv, base_res, stress, outdir: Path):
     import json
     from . import pipeline
