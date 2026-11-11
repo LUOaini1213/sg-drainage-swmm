@@ -1,8 +1,8 @@
 {
-  "n_runs": 183,
+  "n_runs": 360,
   "max_abs_runoff_continuity_error_pct": 0.031,
-  "max_abs_routing_continuity_error_pct": 0.163,
-  "max_abs_continuity_error_pct": 0.163,
+  "max_abs_routing_continuity_error_pct": 0.495,
+  "max_abs_continuity_error_pct": 0.495,
   "threshold_pct": 1.0,
   "runs": [
     {
@@ -919,6 +919,891 @@
       "name": "sweep",
       "runoff": -0.031,
       "routing": -0.034
+    },
+    {
+      "name": "tide:design_10yr_design_free",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:cc_v3_low_design_free",
+      "runoff": -0.028,
+      "routing": -0.116
+    },
+    {
+      "name": "tide:cc_v3_low_upsized_free",
+      "runoff": -0.028,
+      "routing": -0.133
+    },
+    {
+      "name": "tide:cc_v3_high_design_free",
+      "runoff": -0.031,
+      "routing": -0.034
+    },
+    {
+      "name": "tide:cc_v3_high_upsized_free",
+      "runoff": -0.031,
+      "routing": -0.013
+    },
+    {
+      "name": "tide:t100_design_free",
+      "runoff": -0.029,
+      "routing": -0.077
+    },
+    {
+      "name": "tide:t100_upsized_free",
+      "runoff": -0.029,
+      "routing": -0.058
+    },
+    {
+      "name": "tide:tide_design_10yr_design_present_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:tide_design_10yr_design_present_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:tide_design_10yr_design_cpcop_0p7_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:tide_design_10yr_design_cpcop_0p7_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:tide_design_10yr_design_v3_ssp585_2100_high_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:tide_design_10yr_design_v3_ssp585_2100_high_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:tide_design_10yr_design_cpcop_2p15_open",
+      "runoff": -0.027,
+      "routing": 0.161
+    },
+    {
+      "name": "tide:tide_design_10yr_design_cpcop_2p15_gated",
+      "runoff": -0.027,
+      "routing": 0.17
+    },
+    {
+      "name": "tide:tide_cc_v3_low_design_present_open",
+      "runoff": -0.028,
+      "routing": -0.116
+    },
+    {
+      "name": "tide:tide_cc_v3_low_design_present_gated",
+      "runoff": -0.028,
+      "routing": -0.116
+    },
+    {
+      "name": "tide:tide_cc_v3_low_design_cpcop_0p7_open",
+      "runoff": -0.028,
+      "routing": -0.116
+    },
+    {
+      "name": "tide:tide_cc_v3_low_design_cpcop_0p7_gated",
+      "runoff": -0.028,
+      "routing": -0.116
+    },
+    {
+      "name": "tide:tide_cc_v3_low_design_v3_ssp585_2100_high_open",
+      "runoff": -0.028,
+      "routing": -0.116
+    },
+    {
+      "name": "tide:tide_cc_v3_low_design_v3_ssp585_2100_high_gated",
+      "runoff": -0.028,
+      "routing": -0.116
+    },
+    {
+      "name": "tide:tide_cc_v3_low_design_cpcop_2p15_open",
+      "runoff": -0.028,
+      "routing": 0.159
+    },
+    {
+      "name": "tide:tide_cc_v3_low_design_cpcop_2p15_gated",
+      "runoff": -0.028,
+      "routing": 0.169
+    },
+    {
+      "name": "tide:tide_cc_v3_low_upsized_present_open",
+      "runoff": -0.028,
+      "routing": -0.133
+    },
+    {
+      "name": "tide:tide_cc_v3_low_upsized_present_gated",
+      "runoff": -0.028,
+      "routing": -0.133
+    },
+    {
+      "name": "tide:tide_cc_v3_low_upsized_cpcop_0p7_open",
+      "runoff": -0.028,
+      "routing": -0.133
+    },
+    {
+      "name": "tide:tide_cc_v3_low_upsized_cpcop_0p7_gated",
+      "runoff": -0.028,
+      "routing": -0.133
+    },
+    {
+      "name": "tide:tide_cc_v3_low_upsized_v3_ssp585_2100_high_open",
+      "runoff": -0.028,
+      "routing": -0.133
+    },
+    {
+      "name": "tide:tide_cc_v3_low_upsized_v3_ssp585_2100_high_gated",
+      "runoff": -0.028,
+      "routing": -0.133
+    },
+    {
+      "name": "tide:tide_cc_v3_low_upsized_cpcop_2p15_open",
+      "runoff": -0.028,
+      "routing": 0.157
+    },
+    {
+      "name": "tide:tide_cc_v3_low_upsized_cpcop_2p15_gated",
+      "runoff": -0.028,
+      "routing": 0.166
+    },
+    {
+      "name": "tide:tide_cc_v3_high_design_present_open",
+      "runoff": -0.031,
+      "routing": -0.034
+    },
+    {
+      "name": "tide:tide_cc_v3_high_design_present_gated",
+      "runoff": -0.031,
+      "routing": -0.034
+    },
+    {
+      "name": "tide:tide_cc_v3_high_design_cpcop_0p7_open",
+      "runoff": -0.031,
+      "routing": -0.034
+    },
+    {
+      "name": "tide:tide_cc_v3_high_design_cpcop_0p7_gated",
+      "runoff": -0.031,
+      "routing": -0.034
+    },
+    {
+      "name": "tide:tide_cc_v3_high_design_v3_ssp585_2100_high_open",
+      "runoff": -0.031,
+      "routing": -0.034
+    },
+    {
+      "name": "tide:tide_cc_v3_high_design_v3_ssp585_2100_high_gated",
+      "runoff": -0.031,
+      "routing": -0.034
+    },
+    {
+      "name": "tide:tide_cc_v3_high_design_cpcop_2p15_open",
+      "runoff": -0.031,
+      "routing": 0.09
+    },
+    {
+      "name": "tide:tide_cc_v3_high_design_cpcop_2p15_gated",
+      "runoff": -0.031,
+      "routing": 0.091
+    },
+    {
+      "name": "tide:tide_cc_v3_high_upsized_present_open",
+      "runoff": -0.031,
+      "routing": -0.013
+    },
+    {
+      "name": "tide:tide_cc_v3_high_upsized_present_gated",
+      "runoff": -0.031,
+      "routing": -0.013
+    },
+    {
+      "name": "tide:tide_cc_v3_high_upsized_cpcop_0p7_open",
+      "runoff": -0.031,
+      "routing": -0.013
+    },
+    {
+      "name": "tide:tide_cc_v3_high_upsized_cpcop_0p7_gated",
+      "runoff": -0.031,
+      "routing": -0.013
+    },
+    {
+      "name": "tide:tide_cc_v3_high_upsized_v3_ssp585_2100_high_open",
+      "runoff": -0.031,
+      "routing": 0.034
+    },
+    {
+      "name": "tide:tide_cc_v3_high_upsized_v3_ssp585_2100_high_gated",
+      "runoff": -0.031,
+      "routing": 0.034
+    },
+    {
+      "name": "tide:tide_cc_v3_high_upsized_cpcop_2p15_open",
+      "runoff": -0.031,
+      "routing": 0.214
+    },
+    {
+      "name": "tide:tide_cc_v3_high_upsized_cpcop_2p15_gated",
+      "runoff": -0.031,
+      "routing": 0.23
+    },
+    {
+      "name": "tide:tide_t100_design_present_open",
+      "runoff": -0.029,
+      "routing": -0.077
+    },
+    {
+      "name": "tide:tide_t100_design_present_gated",
+      "runoff": -0.029,
+      "routing": -0.077
+    },
+    {
+      "name": "tide:tide_t100_design_cpcop_0p7_open",
+      "runoff": -0.029,
+      "routing": -0.077
+    },
+    {
+      "name": "tide:tide_t100_design_cpcop_0p7_gated",
+      "runoff": -0.029,
+      "routing": -0.077
+    },
+    {
+      "name": "tide:tide_t100_design_v3_ssp585_2100_high_open",
+      "runoff": -0.029,
+      "routing": -0.077
+    },
+    {
+      "name": "tide:tide_t100_design_v3_ssp585_2100_high_gated",
+      "runoff": -0.029,
+      "routing": -0.077
+    },
+    {
+      "name": "tide:tide_t100_design_cpcop_2p15_open",
+      "runoff": -0.029,
+      "routing": 0.123
+    },
+    {
+      "name": "tide:tide_t100_design_cpcop_2p15_gated",
+      "runoff": -0.029,
+      "routing": 0.129
+    },
+    {
+      "name": "tide:tide_t100_upsized_present_open",
+      "runoff": -0.029,
+      "routing": -0.058
+    },
+    {
+      "name": "tide:tide_t100_upsized_present_gated",
+      "runoff": -0.029,
+      "routing": -0.058
+    },
+    {
+      "name": "tide:tide_t100_upsized_cpcop_0p7_open",
+      "runoff": -0.029,
+      "routing": -0.058
+    },
+    {
+      "name": "tide:tide_t100_upsized_cpcop_0p7_gated",
+      "runoff": -0.029,
+      "routing": -0.058
+    },
+    {
+      "name": "tide:tide_t100_upsized_v3_ssp585_2100_high_open",
+      "runoff": -0.029,
+      "routing": -0.058
+    },
+    {
+      "name": "tide:tide_t100_upsized_v3_ssp585_2100_high_gated",
+      "runoff": -0.029,
+      "routing": -0.058
+    },
+    {
+      "name": "tide:tide_t100_upsized_cpcop_2p15_open",
+      "runoff": -0.029,
+      "routing": 0.177
+    },
+    {
+      "name": "tide:tide_t100_upsized_cpcop_2p15_gated",
+      "runoff": -0.029,
+      "routing": 0.198
+    },
+    {
+      "name": "tide:datum_g4.5_present_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:datum_g4.5_present_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:datum_g4.5_cpcop_0p7_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:datum_g4.5_cpcop_0p7_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:datum_g4.5_v3_ssp585_2100_high_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:datum_g4.5_v3_ssp585_2100_high_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:datum_g4.5_cpcop_2p15_open",
+      "runoff": -0.027,
+      "routing": -0.046
+    },
+    {
+      "name": "tide:datum_g4.5_cpcop_2p15_gated",
+      "runoff": -0.027,
+      "routing": -0.046
+    },
+    {
+      "name": "tide:datum_g4.0_present_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:datum_g4.0_present_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:datum_g4.0_cpcop_0p7_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:datum_g4.0_cpcop_0p7_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:datum_g4.0_v3_ssp585_2100_high_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:datum_g4.0_v3_ssp585_2100_high_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:datum_g4.0_cpcop_2p15_open",
+      "runoff": -0.027,
+      "routing": 0.161
+    },
+    {
+      "name": "tide:datum_g4.0_cpcop_2p15_gated",
+      "runoff": -0.027,
+      "routing": 0.17
+    },
+    {
+      "name": "tide:datum_g3.5_present_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:datum_g3.5_present_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:datum_g3.5_cpcop_0p7_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:datum_g3.5_cpcop_0p7_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:datum_g3.5_v3_ssp585_2100_high_open",
+      "runoff": -0.027,
+      "routing": -0.046
+    },
+    {
+      "name": "tide:datum_g3.5_v3_ssp585_2100_high_gated",
+      "runoff": -0.027,
+      "routing": -0.046
+    },
+    {
+      "name": "tide:datum_g3.0_present_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:datum_g3.0_present_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:datum_g3.0_cpcop_0p7_open",
+      "runoff": -0.027,
+      "routing": -0.025
+    },
+    {
+      "name": "tide:datum_g3.0_cpcop_0p7_gated",
+      "runoff": -0.027,
+      "routing": -0.025
+    },
+    {
+      "name": "tide:datum_g3.0_v3_ssp585_2100_high_open",
+      "runoff": -0.027,
+      "routing": 0.161
+    },
+    {
+      "name": "tide:datum_g3.0_v3_ssp585_2100_high_gated",
+      "runoff": -0.027,
+      "routing": 0.17
+    },
+    {
+      "name": "tide:datum_g2.5_present_open",
+      "runoff": -0.027,
+      "routing": -0.108
+    },
+    {
+      "name": "tide:datum_g2.5_present_gated",
+      "runoff": -0.027,
+      "routing": -0.108
+    },
+    {
+      "name": "tide:datum_g2.5_cpcop_0p7_open",
+      "runoff": -0.027,
+      "routing": 0.182
+    },
+    {
+      "name": "tide:datum_g2.5_cpcop_0p7_gated",
+      "runoff": -0.027,
+      "routing": 0.193
+    },
+    {
+      "name": "tide:sweep_-2.60_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-2.60_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-2.50_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-2.50_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-2.40_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-2.40_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-2.30_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-2.30_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-2.20_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-2.20_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-2.10_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-2.10_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-2.00_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-2.00_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.90_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.90_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.80_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.80_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.70_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.70_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.60_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.60_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.50_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.50_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.40_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.40_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.30_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.30_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.25_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.25_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.20_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.20_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.15_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.15_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.10_open",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.10_gated",
+      "runoff": -0.027,
+      "routing": -0.127
+    },
+    {
+      "name": "tide:sweep_-1.05_open",
+      "runoff": -0.027,
+      "routing": -0.112
+    },
+    {
+      "name": "tide:sweep_-1.05_gated",
+      "runoff": -0.027,
+      "routing": -0.112
+    },
+    {
+      "name": "tide:sweep_-1.00_open",
+      "runoff": -0.027,
+      "routing": -0.091
+    },
+    {
+      "name": "tide:sweep_-1.00_gated",
+      "runoff": -0.027,
+      "routing": -0.091
+    },
+    {
+      "name": "tide:sweep_-0.95_open",
+      "runoff": -0.027,
+      "routing": -0.07
+    },
+    {
+      "name": "tide:sweep_-0.95_gated",
+      "runoff": -0.027,
+      "routing": -0.07
+    },
+    {
+      "name": "tide:sweep_-0.90_open",
+      "runoff": -0.027,
+      "routing": -0.049
+    },
+    {
+      "name": "tide:sweep_-0.90_gated",
+      "runoff": -0.027,
+      "routing": -0.049
+    },
+    {
+      "name": "tide:sweep_-0.85_open",
+      "runoff": -0.027,
+      "routing": -0.028
+    },
+    {
+      "name": "tide:sweep_-0.85_gated",
+      "runoff": -0.027,
+      "routing": -0.028
+    },
+    {
+      "name": "tide:sweep_-0.80_open",
+      "runoff": -0.027,
+      "routing": -0.007
+    },
+    {
+      "name": "tide:sweep_-0.80_gated",
+      "runoff": -0.027,
+      "routing": -0.007
+    },
+    {
+      "name": "tide:sweep_-0.75_open",
+      "runoff": -0.027,
+      "routing": 0.015
+    },
+    {
+      "name": "tide:sweep_-0.75_gated",
+      "runoff": -0.027,
+      "routing": 0.015
+    },
+    {
+      "name": "tide:sweep_-0.70_open",
+      "runoff": -0.027,
+      "routing": 0.022
+    },
+    {
+      "name": "tide:sweep_-0.70_gated",
+      "runoff": -0.027,
+      "routing": 0.028
+    },
+    {
+      "name": "tide:sweep_-0.65_open",
+      "runoff": -0.027,
+      "routing": 0.037
+    },
+    {
+      "name": "tide:sweep_-0.65_gated",
+      "runoff": -0.027,
+      "routing": 0.038
+    },
+    {
+      "name": "tide:sweep_-0.60_open",
+      "runoff": -0.027,
+      "routing": 0.021
+    },
+    {
+      "name": "tide:sweep_-0.60_gated",
+      "runoff": -0.027,
+      "routing": 0.03
+    },
+    {
+      "name": "tide:sweep_-0.55_open",
+      "runoff": -0.027,
+      "routing": -0.001
+    },
+    {
+      "name": "tide:sweep_-0.55_gated",
+      "runoff": -0.027,
+      "routing": -0.002
+    },
+    {
+      "name": "tide:sweep_-0.50_open",
+      "runoff": -0.027,
+      "routing": -0.012
+    },
+    {
+      "name": "tide:sweep_-0.50_gated",
+      "runoff": -0.027,
+      "routing": -0.011
+    },
+    {
+      "name": "tide:sweep_-0.45_open",
+      "runoff": -0.027,
+      "routing": 0.109
+    },
+    {
+      "name": "tide:sweep_-0.45_gated",
+      "runoff": -0.027,
+      "routing": 0.111
+    },
+    {
+      "name": "tide:sweep_-0.40_open",
+      "runoff": -0.027,
+      "routing": 0.156
+    },
+    {
+      "name": "tide:sweep_-0.40_gated",
+      "runoff": -0.027,
+      "routing": 0.162
+    },
+    {
+      "name": "tide:sweep_-0.35_open",
+      "runoff": -0.027,
+      "routing": 0.165
+    },
+    {
+      "name": "tide:sweep_-0.35_gated",
+      "runoff": -0.027,
+      "routing": 0.187
+    },
+    {
+      "name": "tide:sweep_-0.30_open",
+      "runoff": -0.027,
+      "routing": 0.206
+    },
+    {
+      "name": "tide:sweep_-0.30_gated",
+      "runoff": -0.027,
+      "routing": 0.216
+    },
+    {
+      "name": "tide:sweep_-0.25_open",
+      "runoff": -0.027,
+      "routing": 0.287
+    },
+    {
+      "name": "tide:sweep_-0.25_gated",
+      "runoff": -0.027,
+      "routing": 0.298
+    },
+    {
+      "name": "tide:sweep_-0.20_open",
+      "runoff": -0.027,
+      "routing": 0.378
+    },
+    {
+      "name": "tide:sweep_-0.20_gated",
+      "runoff": -0.027,
+      "routing": 0.389
+    },
+    {
+      "name": "tide:sweep_-0.15_open",
+      "runoff": -0.027,
+      "routing": 0.44
+    },
+    {
+      "name": "tide:sweep_-0.15_gated",
+      "runoff": -0.027,
+      "routing": 0.453
+    },
+    {
+      "name": "tide:sweep_-0.10_open",
+      "runoff": -0.027,
+      "routing": 0.458
+    },
+    {
+      "name": "tide:sweep_-0.10_gated",
+      "runoff": -0.027,
+      "routing": 0.472
+    },
+    {
+      "name": "tide:sweep_-0.05_open",
+      "runoff": -0.027,
+      "routing": 0.477
+    },
+    {
+      "name": "tide:sweep_-0.05_gated",
+      "runoff": -0.027,
+      "routing": 0.491
+    },
+    {
+      "name": "tide:sweep_+0.00_open",
+      "runoff": -0.027,
+      "routing": 0.48
+    },
+    {
+      "name": "tide:sweep_+0.00_gated",
+      "runoff": -0.027,
+      "routing": 0.495
+    },
+    {
+      "name": "tide:pump_check_gate_shut_no_pump",
+      "runoff": -0.027,
+      "routing": 0.035
+    },
+    {
+      "name": "tide:pump_check_gate_shut_pumped",
+      "runoff": -0.027,
+      "routing": 0.03
     }
   ]
 }

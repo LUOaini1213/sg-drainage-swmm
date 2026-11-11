@@ -73,12 +73,84 @@ MUTANTS = [
      "hyetograph peak at the start instead of the centre"),
     ("M19", "sgdrain/hyetograph.py", "return [d * 60.0 / dt_min for d in blocks]",
      "return [d / dt_min for d in blocks]", "hyetograph depth->intensity unit error"),
-    ("M20", "sgdrain/swmm_model.py", "{cop.MANNING_N['concrete']}", "0.013",
+    # (from round 4 the snippet names the network conduit line: the tide code added
+    #  a second conduit, the sump outlet, that uses the same roughness expression)
+    ("M20", "sgdrain/swmm_model.py",
+     "add(f\"{r.id}  {r.frm}  {r.to}  {_fmt(r.length, 2)}  {cop.MANNING_N['concrete']}\"",
+     "add(f\"{r.id}  {r.frm}  {r.to}  {_fmt(r.length, 2)}  0.013\"",
      "SWMM conduits use n = 0.013 instead of the COP 0.015"),
 ]
 
+# Bugs in the tide / sea-level code (added with the tide/SLR stress test).
+TIDE_MUTANTS = [
+    ("T01", "sgdrain/coastal.py", "return z_local - outfall_ground_local + outfall_ground_shd",
+     "return z_local + outfall_ground_local - outfall_ground_shd", "local-to-SHD offset applied with the wrong sign"),
+    ("T02", "sgdrain/coastal.py", "return h_cd - tide_mean_cd + tide_mean_shd",
+     "return h_cd + tide_mean_shd", "Chart Datum heights used as SHD (tide mean not removed)"),
+    ("T03", "sgdrain/coastal.py", 'V3_TABLE_5_10["Sultan Shoal"][("SSP5-8.5", 2100)][2]',
+     'V3_TABLE_5_10["Sultan Shoal"][("SSP5-8.5", 2100)][0]', "V3 scenario takes the median, not the cited top of range"),
+    ("T04", "sgdrain/coastal.py", 'OUTFALL_GROUND_SHD_BASE = MIN_PLATFORM_LEVEL_SHD["southern_coast"]',
+     'OUTFALL_GROUND_SHD_BASE = MIN_PLATFORM_LEVEL_SHD["northern_coast"]', "datum anchored on the wrong COP level"),
+    ("T05", "sgdrain/tide.py", "(1.0 - math.cos(math.pi * f)) / 2.0", "f",
+     "tide interpolated linearly instead of by half cosine"),
+    ("T06", "sgdrain/tide.py", "num += 0.5 * (a.height_cd + b.height_cd) * dt", "num += a.height_cd * dt",
+     "tide mean uses only the earlier extreme of each interval"),
+    ("T07", "sgdrain/tide.py", 'return next(e for e in ev if e.kind == "H" and e.height_cd == top)',
+     'return [e for e in ev if e.kind == "H" and e.height_cd == top][-1]', "the latest, not the earliest, of tied high waters"),
+    ("T08", "sgdrain/tide.py", "t0 = hw.time - timedelta(minutes=peak_offset_min)", "t0 = hw.time",
+     "high water placed at the start of the run, not at the storm peak"),
+    ("T09", "sgdrain/backwater.py", "return (n * v) ** 2 / r ** (4.0 / 3.0)", "return (n * v) ** 2 / r ** (2.0 / 3.0)",
+     "friction slope with R^(2/3) instead of R^(4/3)"),
+    ("T10", "sgdrain/backwater.py", "return (s0 * dx + y + velocity_head(q, b, y) - h_dn",
+     "return (-s0 * dx + y + velocity_head(q, b, y) - h_dn", "bed slope sign reversed in the energy balance"),
+    ("T11", "sgdrain/backwater.py", 'y_dn = max(yn, wl_node[r.to] - inv[r.id]["inv_dn"])',
+     'y_dn = max(yn, wl_node[r.to] - inv[r.id]["inv_up"])', "downstream depth measured from the wrong invert"),
+    ("T12", "sgdrain/backwater.py", "fb_limit = (1.0 - cop.FREEBOARD_FRACTION) * d", "fb_limit = d",
+     "backwater check ignores the COP freeboard (only overtopping)"),
+    ("T13", "sgdrain/backwater.py", 'wl_node[r.frm] = p["wl_up"]', 'wl_node[r.frm] = p["inv"][-1] + p["yn"]',
+     "junction level not passed upstream (backwater stops at a node)"),
+    ("T14", "sgdrain/backwater.py", "        if ok(mid):", "        if not ok(mid):",
+     "bisection for the highest tolerable outfall level runs the wrong way"),
+    ("T15", "sgdrain/backwater.py",
+     "p = network_profile(net, trial, rational.inverts(net, trial), flows, tailwater)",
+     "p = network_profile(net, trial, rational.inverts(net, cur), flows, tailwater)",
+     "upsizing keeps the old inverts (a deeper drain's cope rises above ground)"),
+    ("T16", "sgdrain/backwater.py", "if dz >= tol:", "if dz >= -tol:",
+     "backwater extent counts stations that are not raised"),
+    ("T17", "sgdrain/pumpsump.py", "s = max(0.0, s + 0.5 * (e0 + e1) * dt)", "s = s + 0.5 * (e0 + e1) * dt",
+     "sump storage allowed to go below empty"),
+    ("T18", "sgdrain/pumpsump.py", "tc = dt * e0 / (e0 - e1)", "tc = 0.5 * dt",
+     "inflow assumed to cross the pump rate mid-step"),
+    ("T19", "sgdrain/swmm_model.py", 'gate = "YES" if bc.get("gated") else "NO"', 'gate = "NO"',
+     "flap gate dropped from the SWMM outfall"),
+    ("T20", "sgdrain/swmm_model.py", "y0 = _fmt(min(max(0.0, init_level - node_inv[nid]), ymax))", 'y0 = "0"',
+     "open outfall: drains not pre-filled to the tide level"),
+    ("T21", "sgdrain/tide_pipeline.py",
+     '"d_flood_m3": round(res.total_flood_volume_m3 - res0.total_flood_volume_m3, 1),',
+     '"d_flood_m3": round(res.total_flood_volume_m3, 1),', "extra overtopping not measured against the free outfall"),
+    ("T22", "sgdrain/tide_pipeline.py", 'coastal.cd_to_shd(h, ctx["mean_cd"]) + slr',
+     'coastal.cd_to_shd(h, ctx["mean_cd"]) - slr', "sea-level rise subtracted"),
+    ("T23", "sgdrain/tide_pipeline.py",
+     'return [(t, ctx["of_ground_local"] + hw_rel_ground + (h - top)) for t, h in ctx["curve_cd"]]',
+     'return [(t, ctx["of_ground_local"] + hw_rel_ground) for t, h in ctx["curve_cd"]]',
+     "sweep loses the tide curve (flat sea at high water)"),
+    ("T24", "sgdrain/tide_pipeline.py", "return (k + 0.5) * dt_min", "return k * dt_min",
+     "storm peak taken at the start of the peak block"),
+    ("T25", "sgdrain/tide_pipeline.py", "    if not gated:", "    if gated:",
+     "drains pre-filled behind the flap gate instead of the open outfall"),
+    ("T26", "sgdrain/tide_pipeline.py", "rise = {n: head[n] - head0[n] for n in head if n != of}",
+     "rise = {n: head[n] - head0[n] for n in head}", "the outfall boundary node counted as raised by the tide"),
+]
+MUTANTS = MUTANTS + TIDE_MUTANTS
+
+
+def group_of(mid: str) -> str:
+    return "tide" if mid.startswith("T") else "design"
+
+# "local": data/local holds the tide table that is not redistributed; mutants must be killed
+# by what a clean checkout has, so the scratch copy leaves it out.
 IGNORE = shutil.ignore_patterns(".venv", ".git", "__pycache__", ".pytest_cache", "_work",
-                                "*.rpt", "*.out", "*.pdf")
+                                "*.rpt", "*.out", "*.pdf", "local")
 
 
 def copy_repo(dst: Path) -> Path:
@@ -122,9 +194,22 @@ def run_mutant(m) -> dict:
             "seconds": round(secs, 1)}
 
 
+def group_stats(results: list[dict]) -> dict:
+    out = {}
+    for g in ("design", "tide"):
+        rs = [r for r in results if group_of(r["id"]) == g]
+        if rs:
+            out[g] = {"n": len(rs), "n_killed": sum(r["status"] == "killed" for r in rs),
+                      "survivors": [f"{r['id']} ({r['description']})" for r in rs
+                                    if r["status"] == "survived"]}
+    return out
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--only", choices=["design", "tide"], default=None,
+                    help="run one group and print the result without writing the report")
     args = ap.parse_args()
 
     with tempfile.TemporaryDirectory(prefix="mut_base_") as tmp:
@@ -137,10 +222,16 @@ def main() -> None:
     baseline = int(m.group(1))
     print(f"baseline: {baseline} passed in {secs:.0f}s")
 
+    todo = [mm for mm in MUTANTS if args.only is None or group_of(mm[0]) == args.only]
     with ThreadPoolExecutor(max_workers=args.workers) as ex:
-        results = list(ex.map(run_mutant, MUTANTS))
+        results = list(ex.map(run_mutant, todo))
     for r in results:
         print(f"{r['id']} {r['status']:<9} {r['description']}  [{r.get('first_failing_test')}]")
+    if args.only:
+        gs = group_stats(results)[args.only]
+        print(f"[{args.only} only, report not written] killed {gs['n_killed']}/{gs['n']}; "
+              f"survivors: {gs['survivors']}")
+        return
 
     valid = [r for r in results if r["status"] in ("killed", "survived")]
     report = {
@@ -154,6 +245,7 @@ def main() -> None:
         "survivors": [f"{r['id']} ({r['description']})" for r in results
                       if r["status"] == "survived"],
         "invalid": [r["id"] for r in results if r["status"] not in ("killed", "survived")],
+        "groups": group_stats(results),
         "mutants": results,
     }
     out_path = REPO / "results" / "mutation_report.json"
@@ -168,8 +260,14 @@ def main() -> None:
     report["history"] = history + [{
         "round": len(history) + 1, "baseline_passed": baseline,
         "n_mutants": report["n_mutants"], "n_killed": report["n_killed"],
-        "survivors": report["survivors"]}]
+        "survivors": report["survivors"], "groups": report["groups"]}]
     report["round"] = len(report["history"])
+    # the first round that included the tide/sea-level mutants
+    first_tide = next((h for h in report["history"] if "tide" in h.get("groups", {})), None)
+    if first_tide is not None:
+        report["tide_first_round"] = {"round": first_tide["round"],
+                                      "baseline_passed": first_tide["baseline_passed"],
+                                      **first_tide["groups"]["tide"]}
     out_path.write_text(json.dumps(report, indent=2) + "\n")
     sys.path.insert(0, str(REPO))
     from sgdrain import readme

@@ -1,0 +1,40 @@
+{
+  "source": "MPA tide predictions (high and low waters, metres above Chart Datum) as published on NEA's Tide Timings page, https://www.nea.gov.sg/weather/tide-timings, November and December 2026 tables, retrieved 2026-11-09",
+  "note": "Extract only. The full table is not redistributed here. 'stats' and 'mean_level_cd' are computed from the full table; 'window' holds the predicted extremes that bracket the simulated window around the highest predicted high water.",
+  "table_sha256": "547a91f215567b75b0ffeda954dfcf1624e55a9110ad3880f0248eb3d181b9db",
+  "stats": {
+    "n_extremes": 236,
+    "n_high": 118,
+    "n_low": 118,
+    "first": "2026-11-01T04:18",
+    "last": "2026-12-31T23:01",
+    "highest_hw_cd": 3.4,
+    "highest_hw_time": "2026-12-26T12:01",
+    "n_highest_hw": 2,
+    "mean_hw_cd": 2.8068,
+    "mean_lw_cd": 1.1356,
+    "lowest_lw_cd": 0.1,
+    "mean_level_cd": 1.9418
+  },
+  "mean_level_cd": 1.9417713058281822,
+  "window": [
+    {
+      "date": "2026-12-26",
+      "time": "06:26",
+      "height_m_cd": 1.8,
+      "type": "L"
+    },
+    {
+      "date": "2026-12-26",
+      "time": "12:01",
+      "height_m_cd": 3.4,
+      "type": "H"
+    },
+    {
+      "date": "2026-12-26",
+      "time": "18:52",
+      "height_m_cd": 0.2,
+      "type": "L"
+    }
+  ]
+}

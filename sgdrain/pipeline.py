@@ -389,6 +389,11 @@ def main(write_figures: bool = True) -> dict:
         "n_failing_at_v3_high": stress["cc_v3_high"]["n_rational_failing"],
     }
     write_json(RESULTS / "stress_summary.json", stress_sum)
+
+    # tide and sea-level rise at the outfall (its SWMM runs join RUN_LOG)
+    from . import tide_pipeline
+    tide_sum = tide_pipeline.main(net, design, secs, write_figures=write_figures)
+
     write_json(RESULTS / "swmm_run_log.json", {
         "n_runs": len(RUN_LOG),
         "max_abs_runoff_continuity_error_pct": max(abs(r["runoff"]) for r in RUN_LOG),
@@ -411,7 +416,7 @@ def main(write_figures: bool = True) -> dict:
     if write_figures:
         from . import plots
         plots.make_all(net, design, secs, inv, base_res, stress, RESULTS / "figures")
-    return {"design": dsum, "swmm": swmm_sum, "stress": stress_sum}
+    return {"design": dsum, "swmm": swmm_sum, "stress": stress_sum, "tide": tide_sum}
 
 
 def swmm_greedy_upsize(net, secs, T, uplift, max_rounds: int = 40):
